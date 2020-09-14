@@ -1,0 +1,328 @@
+EXERCICE 4.1:
+	SI non(Tutu>Toto+4) ET non(Tata="OK")
+		Tutu<-Tutu-1
+	Sinon
+		Tutu<- Tutu+1
+	FinSi
+
+EXERCICE 4.2:
+	DÉBUT
+    REQUÊTE "Heure ? ", H
+    REQUÊTE "Minutes : ", minute
+    SI H=24 ALORS
+        H=0
+    FINSI
+    minute=minute+1
+    SI minute=60 ALORS
+        minute=0
+        H=H+1
+        SI H=24 ALORS
+            H=0
+        FINSI
+    FINSI
+    ÉCRIRE "Dans une minute, il sera ",H," heure(s) ", minute
+	FIN
+
+EXERCICE 4.3:
+	DÉBUT
+    REQUÊTE "Heure : ", H
+    REQUÊTE "minute : ", m
+    REQUÊTE "Seconde : ", s
+    SI H=24 ALORS
+        H=0
+    FINSI
+    SI m=60 ALORS
+        m=0
+        H=H+1
+        SI H=24 ALORS
+            H=0
+        FINSI
+    FINSI
+    SI s=60 ALORS
+        s=0
+        m=m+1
+        SI m=60 ALORS
+            m=0
+            H=H+1
+            SI H=24 ALORS
+                H=0
+            FINSI
+        FINSI
+    FINSI
+    s=s+1
+    SI s=60 ALORS
+        s=0
+        m=m+1
+        SI m=60 ALORS
+            m=0
+            H=H+1
+            SI H=24 ALORS
+                H=0
+            FINSI
+        FINSI
+    FINSI
+    ÉCRIRE "Dans une seconde, il sera ",H," heure(s) ",m," minute(s)",s," seconde(s)"
+	FIN
+
+EXERCICE 4.4:
+	DÉBUT
+    REQUÊTE "Combien de copies ? ", c
+    SI c<=10 ALORS
+        cout=c*0.10
+    SINON
+        SI c<=30 ALORS
+            cout=10*0.10+0.09*(c-10)
+        SINON
+            cout=10*0.10+20*0.09+0.08*(c-30)
+        FINSI
+    FINSI
+    ÉCRIRE "Coût : ", cout, " E"
+	FIN
+
+EXERCICE 4.5:
+	DÉBUT
+    REQUÊTE "Age ? ", age
+    REQUÊTE "Sexe ? ", s
+    SI s="h" ALORS
+        SI age>20 ALORS
+            ÉCRIRE "Imposable"
+        SINON
+            ÉCRIRE "Pas imposable"
+        FINSI
+    SINON
+        SI age>18 ET age<35 ALORS
+            ÉCRIRE "Imposable"
+        SINON
+            ÉCRIRE "Pas imposable"
+        FINSI
+    FINSI
+	FIN
+
+OU
+
+	DÉBUT
+		REQUÊTE "age", age
+		REQUÊTE "sexe", s
+		SI (s="h" ET age>20) OU (s="f" ET age>18 ET age<35) ALORS
+			ÉCRIRE "Imposable"
+		SINON
+			ÉCRIRE "Pas imposable"
+		FINSI
+	FIN
+
+EXERCICE 4.6:
+	DÉBUT
+    REQUÊTE "Score : ", s1, s2, s3, s4
+    r="0"
+    SI s1<12.5 ALORS
+        ÉCRIRE "Le candidat numéro 1 est battu"
+        r="1"
+    FINSI
+    SI s1>50 ALORS
+        ÉCRIRE "Le candidat numéro 1 est élu"
+        r="1"
+    FINSI
+    SI r="1" ALORS
+    SINON
+        SI s1>s2 ET s1>s3 ET s1>s4 ALORS
+            ÉCRIRE "Ballottage favorable"
+        SINON
+            ÉCRIRE "Ballottage défavorable"
+        FINSI
+    FINSI
+	FIN
+
+EXERCICE 4.7:
+	DÉBUT
+    r="0"
+    REQUÊTE "Age : ", age
+    REQUÊTE "Permis : ", permis
+    REQUÊTE "Accident :", acc
+    REQUÊTE "Fidélité : ", fidelite
+    SI fidelite>1 ALORS
+        ÉCRIRE "Tarif bleu"
+        r="1"
+    FINSI
+    SI r="1" ALORS
+    SINON
+        SI age>25 ALORS
+            SI permis<2 ALORS
+                SI Acc=0 ALORS
+                    ÉCRIRE "Tarif orange"
+                SINON
+                    SI Acc=1 ALORS
+                        ÉCRIRE "Tarif rouge"
+                    SINON
+                        ÉCRIRE "Pas assuré"
+                    FINSI
+                FINSI
+            SINON
+                SI acc=0 ALORS
+                    ÉCRIRE "Tarif vert"
+                SINON
+                    SI acc=1 ALORS
+                        ÉCRIRE "Tarif orange"
+                    SINON
+                        SI acc=2 ALORS
+                            ÉCRIRE "Tarif rouge"
+                        SINON
+                            ÉCRIRE "Pas assuré"
+                        FINSI
+                    FINSI
+                FINSI
+            FINSI
+        SINON
+            SI permis<2 ALORS
+                SI acc=0 ALORS
+                    ÉCRIRE "Tarif rouge"
+                SINON
+                    ÉCRIRE "Pas assuré"
+                FINSI
+            SINON
+                SI acc=0 ALORS
+                    ÉCRIRE "Tarif Orange"
+                SINON
+                    SI acc=1 ALORS
+                        ÉCRIRE "Tarif rouge"
+                    SINON
+                        ÉCRIRE "Pas assuré"
+                    FINSI
+                FINSI
+            FINSI
+        FINSI
+    FINSI
+	FIN
+
+
+
+
+EXERCICE 4.8:
+	DÉBUT
+    r="0"
+    REQUÊTE "Jour : ", jour
+    REQUÊTE "Mois : ", mois
+    REQUÊTE "Année : ", annee
+    SI mois>12 OU mois<0 ALORS
+        ÉCRIRE "Mois invalide"
+        r="1"
+    FINSI
+    SI jour<0 OU jour>31 ALORS
+        ÉCRIRE "Jour invalide"
+        r="1"
+    FINSI
+    SI r="1" ALORS
+    SINON
+        SI mois=2 ALORS
+            verif=annee%4
+            SI verif=0 ALORS
+                verif=annee%100
+                SI verif=0 ALORS
+                    verif=annee%400
+                    SI verif=0 ALORS
+
+                        \\ Bissextile
+                        SI jour>29 ALORS
+                            ÉCRIRE "Jour invalide"
+                        SINON
+                            ÉCRIRE "Date valide"
+                        FINSI
+                    SINON
+                        SI jour>28 ALORS
+                            ÉCRIRE "Jour invalide"
+                        SINON
+                            ÉCRIRE "Date valide"
+                        FINSI
+                    FINSI
+                SINON
+
+                    \\ bissextile
+                    SI jour>29 ALORS
+                        ÉCRIRE "Jour invalide"
+                    SINON
+                        ÉCRIRE "Date valide"
+                    FINSI
+                FINSI
+            SINON
+                SI jour>28 ALORS
+                    ÉCRIRE "Jour invalide"
+                SINON
+                    ÉCRIRE "Date valide"
+                FINSI
+            FINSI
+        SINON
+            SI mois=1 ou mois=3 ou mois=5 ou mois=7 ou mois=8 ou mois=10 ou mois=12 ALORS
+                SI jour<0 OU jour>31 ALORS
+                    ÉCRIRE "Jour invalide"
+                SINON
+                    ÉCRIRE "Date valide"
+                FINSI
+            SINON
+                SI jour<0 OU jour>30 ALORS
+                    ÉCRIRE "Date invalide"
+                SINON
+                    ÉCRIRE "Date valide"
+                FINSI
+            FINSI
+        FINSI
+    FINSI
+	FIN
+
+OU
+
+	DÉBUT
+    r="0"
+    REQUÊTE "Jour : ", jour
+    REQUÊTE "Mois : ", mois
+    REQUÊTE "Année : ", annee
+    SI mois>12 OU mois<0 ALORS
+        ÉCRIRE "Mois invalide"
+    FINSI
+    SI jour<0 OU jour>31 ALORS
+        ÉCRIRE "Jour invalide"
+    FINSI
+	SI mois=2 ALORS
+		SI annee%4=0 ALORS
+			SI annee%100=0 ALORS
+				SI annee%400=0 ALORS
+					\\ Bissextile
+                    SI jour>29 ALORS
+                        ÉCRIRE "Jour invalide"
+					SINON
+                        ÉCRIRE "Date valide"
+					FINSI
+				SINON
+					SI jour>28 ALORS
+						ECRIRE "Jour invalide"
+					SINON
+						ECRIRE "Date valide"
+                FINSI
+			SINON
+				\\ Bissextile
+                SI jour>29 ALORS
+                    ÉCRIRE "Jour invalide"
+                SINON
+                    ÉCRIRE "Date valide"
+                FINSI
+			FINSI
+		SINON
+			SI jour>28 ALORS
+                    ÉCRIRE "Jour invalide"
+                SINON
+                    ÉCRIRE "Date valide"
+            FINSI
+		FINSI
+	FINSI
+	SI mois=1 ou mois=3 ou mois=5 ou mois=7 ou mois=8 ou mois=10 ou mois=12 ALORS
+		SI jour>31 ALORS
+                    ÉCRIRE "Jour invalide"
+                SINON
+                    ÉCRIRE "Date valide"
+        FINSI
+	SINON
+		SI jour>30 ALORS
+                    ÉCRIRE "Date invalide"
+                SINON
+                    ÉCRIRE "Date valide"
+        FINSI
+	FINSI
+	FIN

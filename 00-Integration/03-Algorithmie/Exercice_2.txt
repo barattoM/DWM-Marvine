@@ -1,0 +1,43 @@
+EXERCICE 2.1:
+	Val= 231
+	Double = 462
+
+EXERCICE 2.2:
+	Variables Val, carre en Numériques
+	Début
+	Ecrire "Donnez un nombre"
+	Lire Val
+	carre = Val^2
+	Ecrire carre
+	Fin
+
+EXERCICE 2.3:
+	Variables prixHT, nbArticle, TVA, prixTTC en Numériques
+	Ecrire "Prix HT :"
+	Lire prixHT
+	Ecrire "Nombre d'article :"
+	Lire nbArticle
+	Ecrire "TVA :"
+	Lire TVA
+	prixTTC= prixHT*nbArticle+TVA
+	Ecrire prixTTC
+	Fin
+
+EXERCICE 2.4:
+	Variables c1, c2, c3, c4, c5, c6, c7, phrase en caractères
+	c1 ="d'amour"
+	c2 ="mourir"
+	c3 ="me font"
+	c4 ="belle Marquise"
+	c5 ="vos"
+	c6 ="yeux"
+	c7 ="beaux"
+	phrase = c1+c2+c3+c4+c5+c7+c6
+	Ecrire phrase
+	phrase = c5+c6+c7+c1+c3+c4+c2
+	Ecrire phrase
+	phrase = c2+c5+c7+c6+c4+c1+c3
+	Ecrire phrase
+	phrase = c3+c5+c6+c7+c2+c4+c1
+	Ecrire phrase
+	Fin

@@ -1,0 +1,101 @@
+EXERCICE 3.1:
+	Variables Val en Numeriques
+	Début
+	Ecrire "Donnez un nombre"
+	Lire Val
+	Si Val>0 Alors
+		Ecrire "Le nombre est positif"
+	Sinon
+		Ecrire "Le nombre est négatif"
+	FinSi
+	Fin
+
+EXERCICE 3.2:
+	Variables Num1, Num2 en Numeriques
+	Debut
+	Ecrire "Donnez un nombre"
+	Lire Num1
+	Ecrire "Donnez un nombre"
+	Lire Num2
+	Si (Num1<0 ET Num2<0) OU (Num1>0 ET Num2>0) Alors
+		Ecrire "Produit positif"
+	Sinon
+		Ecrire "Produit négatif"
+	FinSi
+	Fin
+	
+EXERCICE 3.3:
+	Variables nom1, nom2, nom3 en Caracteres
+	Debut
+	Ecrire "Donnez nom"
+	Lire nom1
+	Ecrire "Donnez nom"
+	Lire nom2
+	Ecrire "Donnez nom"
+	Lire nom3
+	Si nom1<nom2 ET nom1<nom3 Alors
+		Si nom2<nom3 Alors
+			Ecrire "Les noms sont rangés par ordre alphabétique"
+		Sinon
+			Ecrire "Les noms ne sont pas rangés par ordre alphabétique"
+		FinSi
+	Sinon
+		Ecrire "Les noms ne sont pas rangés par ordre alphabétique"
+	FinSi
+	Fin
+
+EXERCICE 3.4:
+	Variable num en Numeriques
+	Debut
+	Ecrire "Donnez un nombre"
+	Lire num
+	Si num=0 Alors
+		Ecrire "Le nombre vaut zéro"
+	Sinon
+		Si num<0 Alors
+			Ecrire "Le nombre est negatif"
+		Sinon 
+			Ecrire "Le nombre est positif"
+		FinSi
+	FinSi
+	Fin
+	
+EXERCICE 3.5:
+	Variables num1, num2 en Numeriques
+	Debut
+	Ecrire "Donnez un nombre"
+	Lire num1
+	Ecrire "Donnez un nombre"
+	Lire num2
+	Si num1=0 ou num2=0 Alors
+		Ecrire "Le produit est nul"
+	Sinon
+		Si (num1<0 ET num2<0) OU (num1>0 ET num2>0) Alors
+		Ecrire "Produit positif"
+	Sinon
+		Ecrire "Produit négatif"
+	FinSi
+	
+EXERCICE 3.6:
+	Variable age en Numeriques
+	Debut
+	Ecrire "Donnez l'age de l'enfant"
+	Lire age
+	Si age<6 Alors
+		Ecrire "Pas de catégorie"
+	Sinon
+		Si age>=6 Et age<=7 alors
+			Ecrire "Poussin"
+		Sinon
+			Si age>=8 Et age<=9 alors
+				Ecrire "Pupille"
+			Sinon
+				Si age>=10 Et age<=11 alors
+					Ecrire "Minime"
+				Sinon
+					Ecrire "Cadet"
+				FinSi
+			FinSi
+		FinSi
+	FinSi
+	Fin
