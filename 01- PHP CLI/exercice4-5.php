@@ -2,7 +2,7 @@
     $age=readline("Donnez votre age : ");
     $sexe=readline("Donnez votre sexe (homme/femme) : ");
     //vérification de saisie
-    while(ctype_digit($age)==false || ($sexe!="homme" && $sexe!="femme")){
+    while(!ctype_digit($age) || ($sexe!="homme" && $sexe!="femme")){
         echo "Saisie incorrect \n";
         $age=readline("Donnez votre age : ");
         $sexe=readline("Donnez votre sexe (homme/femme) : ");     
