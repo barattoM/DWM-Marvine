@@ -19,16 +19,16 @@
     switch ($age){
         case $age>=6 && $age<=7 :
             echo "Poussin";
-        break;
+            break;
         case $age>=8 && $age<=9 :
             echo "Pupille";
-        break;
+            break;
         case $age>=10 && $age<=11 :
             echo "Minime";
-        break;
+            break;
         case $age>=12 :
             echo "Cadet";
-        break;
+            break;
         default :
             echo "Hors catégorie";
     }

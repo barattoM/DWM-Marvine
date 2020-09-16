@@ -37,33 +37,42 @@ if ($mois == 2) {
         echo "Date invalide";
     }
     else{
-        //Cas année bissextile
+        //test année bissextile
         if($jour==29){
-            if($annee%4==0){
-                if($annee%100==0){
-                    if($annee%400==0){
-                        //bissextile
-                        echo "Date valide";
-                    }
-                    else{
-                        //Pas bissextile
-                        echo "Date invalide";
-                    }
-                }
-                else{
-                    //bissextile
-                    echo "Date valide";
-                }
+            //année bissextile
+            if(($annee%4==0 && $annee%100==0 && $annee%400==0) || ($annee%4==0 && $annee%100!=0)){
+                echo "Date valide";
             }
+            //année non bissextile
             else{
-                //Pas bissextile
                 echo "Date invalide";
             }
-        }      
-        else{
-        //bissextile
-        echo "Date valide";
         }
+        // if($jour==29){
+        //     if($annee%4==0){
+        //         if($annee%100==0){
+        //             if($annee%400==0){
+        //                 //bissextile
+        //                 echo "Date valide";
+        //             }
+        //             else{
+        //                 //Pas bissextile
+        //                 echo "Date invalide";
+        //             }
+        //         }
+        //         else{
+        //             //bissextile
+        //             echo "Date valide";
+        //         }
+        //     }
+        //     else{
+        //         //Pas bissextile
+        //         echo "Date invalide";
+        //     }
+        // }      
+        // else{
+        // echo "Date valide";
+        // }
     }
 }
 //Cas des autres mois
