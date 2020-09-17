@@ -1,4 +1,5 @@
 <?php
+
 $valeur=readline("Combiens de valeur voulez vous ? ");
 while(!ctype_digit($valeur) || $valeur==0){
     echo "Saisie incorrect \n";
@@ -22,7 +23,7 @@ foreach($notes as $val){
 }
 
 //Inversion du tableau
-for($i=0;$i<count($notes)/2;$i++){
+for($i=0;$i<intdiv(count($notes),2);$i++){
     $temp=$notes[$i];
     $notes[$i]=$notes[(count($notes)-1)-$i];
     $notes[(count($notes)-1)-$i]=$temp;
