@@ -23,7 +23,8 @@ foreach($notes as $val){
 }
 
 //Inversion du tableau
-for($i=0;$i<intdiv(count($notes),2);$i++){
+
+for($i=0;$i<intdiv(count($notes),2);$i++){ //on s'arrete à la moitier du tableau sinon on réinverse le tableau
     $temp=$notes[$i];
     $notes[$i]=$notes[(count($notes)-1)-$i];
     $notes[(count($notes)-1)-$i]=$temp;
