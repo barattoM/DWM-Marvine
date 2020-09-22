@@ -30,6 +30,10 @@ for($i=0;$i<intdiv(count($notes),2);$i++){ //on s'arrete à la moitier du tablea
     $notes[(count($notes)-1)-$i]=$temp;
 }
 
+/* ou */
+
+// $notes=array_reverse($notes);
+
 //Affichage du tableau inversé
 echo "\nLe tableau inversé est :\n";
 foreach($notes as $val){

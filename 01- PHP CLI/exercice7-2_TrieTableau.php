@@ -8,20 +8,20 @@ while(!ctype_digit($valeur) || $valeur==0){
 }
 
 //initialisation du tableau
-    for($i=0;$i<$valeur;$i++){
-        $note=readline("Donnez un note ");
-        while(!ctype_digit($note)){
-            echo "Saisie incorrect \n";
-            $note=readline("Donnez un note ");
-        }
-        $notes[$i]=$note;
-    }
-    
+    // for($i=0;$i<$valeur;$i++){
+    //     $note=readline("Donnez un note ");
+    //     while(!ctype_digit($note)){
+    //         echo "Saisie incorrect \n";
+    //         $note=readline("Donnez un note ");
+    //     }
+    //     $notes[$i]=$note;
+    // }
+
 /* ou */
 
-    // for($i=0;$i<$valeur;$i++){
-    //     $notes[$i]=rand(0,100);
-    // }
+    for($i=0;$i<$valeur;$i++){
+        $notes[$i]=rand(0,100);
+    }
 
 
 //Affichage du tableau initial
@@ -30,6 +30,7 @@ while(!ctype_digit($valeur) || $valeur==0){
         echo $val." ";
     }
     echo "\n";
+
 //Tri dans l'ordre décroissant
     //Tri par section : On recherche la plus grande valeur dans le tableau et on la place en 1ère position, puis on recherche la plus grande valeur (sans regarder la valeur precedente) et on la place en 2e positon, ... 
 

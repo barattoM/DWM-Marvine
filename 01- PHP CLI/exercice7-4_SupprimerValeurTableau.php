@@ -11,4 +11,4 @@ $indice=readline("Quel valeur supprimer ? ");
 $t1=array_slice($tab,0,$indice); //partie avant l'indice
 $t2=array_slice($tab,$indice+1,count($tab)); //partie après l'indice
 $tab=array_merge($t1,$t2); // on fusionne les 2 tableaux sans la valeur à supprimer
-echo affichageTableau($tab);
+affichageTableau($tab);
