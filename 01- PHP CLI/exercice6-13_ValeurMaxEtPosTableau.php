@@ -14,15 +14,15 @@
         }
         $valeurs[$i]=$nombre;
     }
-
+    //Recherche de la plus grande valeur et de sa position dans le tableau
     if($valeur!=0){
-        $max=0;
+        $max=$valeurs[0];
         foreach($valeurs as $key => $val){
             if($val>$max){
                 $max=$val;
-                $pos=$key+1;
+                $pos=$key;
             }
         }
-        echo "La plus grande valeur est ".$max." à la position ".$pos;
+        echo "La plus grande valeur est ".$max." à la position ".$pos+1;
     }
     

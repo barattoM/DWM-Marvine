@@ -25,5 +25,15 @@ $tab=creaTableau2();
 echo "Tableau d'entrée : \n";
 affichageTableau($tab);
 echo "\nTableau trié : ";
-$tab=trieTableau($tab);
+
+//Methode 1
+
+// $tab=trieTableau($tab);
+// affichageTableau($tab);
+
+//Methode 2
+
+sort($tab);
 affichageTableau($tab);
+
+

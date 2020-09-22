@@ -16,12 +16,14 @@
     }
 
     if($valeur!=0){
+        //Calcul de la moyenne
         $somme=0;
         foreach($notes as $val){
             $somme=$somme+$val;
         }
         unset($val);
         $moyenne=$somme/count($notes);
+        //Affichage des notes supérieurs à la moyenne
         echo "La moyenne est de : ".$moyenne." \nLes notes au dessus de la moyenne sont :";
         foreach($notes as $val){
             if($val>$moyenne){

@@ -1,4 +1,5 @@
 <?php
+require "fonction.php";
 
 $valeur=readline("Combiens de valeur voulez vous ? ");
 while(!ctype_digit($valeur) || $valeur==0){
@@ -7,33 +8,42 @@ while(!ctype_digit($valeur) || $valeur==0){
 }
 
 //initialisation du tableau
-for($i=0;$i<$valeur;$i++){
-    $note=readline("Donnez un note ");
-    while(!ctype_digit($note)){
-        echo "Saisie incorrect \n";
+    for($i=0;$i<$valeur;$i++){
         $note=readline("Donnez un note ");
+        while(!ctype_digit($note)){
+            echo "Saisie incorrect \n";
+            $note=readline("Donnez un note ");
+        }
+        $notes[$i]=$note;
     }
-    $notes[$i]=$note;
-}
+    
+/* ou */
+
+    // for($i=0;$i<$valeur;$i++){
+    //     $notes[$i]=rand(0,100);
+    // }
+
+
 //Affichage du tableau initial
     echo "Le tableau que vous avez entré est :\n";
     foreach($notes as $val){
         echo $val." ";
     }
+    echo "\n";
 //Tri dans l'ordre décroissant
     //Tri par section : On recherche la plus grande valeur dans le tableau et on la place en 1ère position, puis on recherche la plus grande valeur (sans regarder la valeur precedente) et on la place en 2e positon, ... 
 
-    for($i=0;$i<count($notes)-1;$i++){
-        $posMaxi=$i;
-        for($j=$i+1;$j<count($notes);$j++){
-            if($notes[$j]>$notes[$posMaxi]){
-                $posMaxi=$j;
-            }       
-        }
-        $temp=$notes[$i];
-        $notes[$i]=$notes[$posMaxi];
-        $notes[$posMaxi]=$temp;
-    }
+    // for($i=0;$i<count($notes)-1;$i++){
+    //     $posMaxi=$i;
+    //     for($j=$i+1;$j<count($notes);$j++){
+    //         if($notes[$j]>$notes[$posMaxi]){
+    //             $posMaxi=$j;
+    //         }       
+    //     }
+    //     $temp=$notes[$i];
+    //     $notes[$i]=$notes[$posMaxi];
+    //     $notes[$posMaxi]=$temp;
+    // }
 
 
     //Tri à bulles : Tant que tout n'est pas trié, pour chaque élément du tableau si le suivant est plus grand on permute de place les 2 élément
@@ -50,6 +60,7 @@ for($i=0;$i<$valeur;$i++){
                 $notes[$i+1]=$temp;
                 $trie=false;    
             }
+            echo "\n".affichageTableau($notes);
         }
     }while(!$trie);
 
