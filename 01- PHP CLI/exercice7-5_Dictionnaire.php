@@ -18,14 +18,11 @@ while(!ctype_print($mot)){
     // }
 
 //Methode 2
-/////////////////////////////////////// a revoir ////////////////////////////////////////
+
 $result=false;
-echo var_dump($mot);
 foreach($dictionnaire as $elt){
-    echo "\n".var_dump($elt);
-    echo "\n".var_dump($result);
     if(strtolower($elt)==strtolower($mot)){
-        $result==true;
+        $result=true;
     }
 }
 
