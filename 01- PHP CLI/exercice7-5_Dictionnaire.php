@@ -1,8 +1,10 @@
 <?php
 require "fonction.php";
 //initialisation du dictionnaire
+
 $dictionnaire=["azerty","ab","tata","toto","try"]; //Tableau impaire pour les test
-$dictionnaire2=["azerty","tata","toto","try"]; //Tableau paire pour les test
+//$dictionnaire=["azerty","tata","toto","try"]; //Tableau paire pour les test
+
 //Demande du mot à rechercher
 $mot=readline("Quel mot recherchez vous ? ");
 while(!ctype_print($mot)){
