@@ -44,7 +44,7 @@ function coderMot($mot){
  *  @return array    $positions tableau contenant les positions de la lettre dans le tableau
  */
 function testerLettre($lettre,$tab,$depart){
-    for($i=$depart;$i<count($tab);$i++){
+    /*for($i=$depart;$i<count($tab);$i++){
         if(strtoupper($lettre)==strtoupper($tab[$i])){
             $positions[]=$i;
         }
@@ -53,14 +53,20 @@ function testerLettre($lettre,$tab,$depart){
     if(empty($positions)){
         $positions=[""];
     }
-    return $positions;
-    /*if(array_search($lettre,$tab)==false){
-        return $positions;
-    }
-    else{
-        testerLettre();
-        return $tableau;
-    }*/
+    return $positions;*/
+
+    $tableau=array_slice($tab,$depart);
+    $recherche=array_search($lettre,$tableau);
+    if ($recherche===false){
+        return [];
+    }else{
+        $positions[]=$recherche+$depart;
+        /*for($i=$recherche+1;$i<count($tab);$i++){
+            $tableau[]=$tab[$i];
+        }*/
+
+        return array_merge($positions,testerLettre($lettre,$tab,$recherche+$depart+1));
+    }     
 }
 
 /**
@@ -106,7 +112,7 @@ function ajouterLesLettres($lettre,$tab,$listePosition){
  * 
  */
 function afficherMauvaisesLettres($listeLettres){
-    echo "Les lettres non présentes sont ";
+    echo "Les lettres non présentes sont : ";
     foreach($listeLettres as $elt){
         echo $elt." ";
     }
@@ -989,6 +995,83 @@ function demanderLettre(){
     return strtoupper($lettre);
 }
 
+/**
+ * méthode qui renvoi 1 si la partie est gagné, -1 si la partie est perdu,
+ * 0 si la partie continue. Elle reçoit en paramètre le nombre d’erreurs 
+ * et le tableau contenant le mot composé
+ * 
+ * @param   int $nbErreur   nombre d'erreurs que le joueur a fait
+ * @param   array  $tab     tableau contenant le mot composé
+ * 
+ * @return  int    $res     retourne 1 si la partie est gagné, -1 si la partie est perdu et 0 si la partie continue 
+ */
+function testerGagner($nbErreur,$tab){
+    if($nbErreur>=8){
+        return -1;
+    }
+    else{
+        if(array_search("_",$tab)===false){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+}
+
+/**
+ * méthode qui lance et gère une partie 
+ * 
+ * @return void
+ */
+function lancerPartie(){
+    $mot= choisirMot();
+    $motTableau=str_split($mot);
+    $motCode= coderMot($mot);
+    $mauvaisesLettres=[];
+    $nbErreur=0;
+    $gagne=0;
+    do{
+        //affichage
+        afficherTableau($motCode);
+        echo "\n";
+        //affichage des mauvaises lettres seulement si il y en a
+        if(!empty($mauvaisesLettres)){
+            afficherMauvaisesLettres($mauvaisesLettres);
+        }
+        echo "\n";
+        
+        //echo $mot;
+
+        //Ajout des lettres
+        $lettre=demanderLettre();
+        $positions=testerLettre($lettre,$motTableau,0);
+        //Si la lettre est dans le mot
+        if(!empty($positions)){
+            $motCode=ajouterLesLettres($lettre,$motCode,$positions);
+        }
+        //Si la lettre n'est pas dans le mot
+        else{
+            $mauvaisesLettres[]=$lettre;
+            $nbErreur+=1;
+        }
+
+        echo"\n";
+        dessinerPendu($nbErreur);
+        echo "\n";
+        
+        $gagne=testerGagner($nbErreur,$motCode);
+
+    }while($gagne==0);
+
+    //affichage de fin de partie
+    if($gagne==1){
+        echo "Vous avez gagné, le mot était bien ".$mot;
+    }else{
+        echo "Vous avez perdu, le mot était ".$mot;
+    }
+}
+
 /*********************** Main ************************************/
 
 //test afficherTableau
@@ -1033,5 +1116,16 @@ afficherMauvaisesLettres($liste);*/
 /*echo choisirMot();*/
 
 //test demanderLettre
-$c = DemanderLettre();
-echo $c;
+/*$c = DemanderLettre();
+echo $c;*/
+
+//test testerGagner
+
+/*$t = array( 'B', '_', 'N', 'J', 'O', 'U', 'R' );
+Echo "Cette méthode doit donner -1 et ca donne " . testerGagner(9, $t)."\n";
+Echo "Cette méthode doit donner 0 et ca donne " . testerGagner(3, $t)."\n";
+$t[1] =  'O' ;
+Echo "Cette méthode doit donner 1 et ca donne " . testerGagner(2, $t)."\n";*/
+
+//test lancerPartie
+lancerPartie();
