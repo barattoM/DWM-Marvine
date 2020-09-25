@@ -1032,10 +1032,10 @@ function lancerPartie(){
     $nbErreur=0;
     $gagne=0;
     do{
-        //affichage
+    //affichage
         afficherTableau($motCode);
         echo "\n";
-        //affichage des mauvaises lettres seulement si il y en a
+    //affichage des mauvaises lettres seulement si il y en a
         if(!empty($mauvaisesLettres)){
             afficherMauvaisesLettres($mauvaisesLettres);
         }
@@ -1043,14 +1043,20 @@ function lancerPartie(){
         
         //echo $mot;
 
-        //Ajout des lettres
-        $lettre=demanderLettre();
+    //Ajout des lettres
+        //Saisie utilisateur: demande une lettre tant que l'utilisateur entre une lettre déja donné
+        $lettre=demanderLettre();  
+        while(in_array($lettre,$mauvaisesLettres) || in_array($lettre,$motCode) ){
+            echo "\nVous avez déja donné cette lettre, veuillez en saisir une autre\n";
+            $lettre=demanderLettre();
+        }
+
         $positions=testerLettre($lettre,$motTableau,0);
-        //Si la lettre est dans le mot
+        //Si la lettre est dans le mot on récupère les positions
         if(!empty($positions)){
             $motCode=ajouterLesLettres($lettre,$motCode,$positions);
         }
-        //Si la lettre n'est pas dans le mot
+        //Si la lettre n'est pas dans le mot on ajoute la lettre dans les mauvaises lettres et on incremente le nombre d'erreurs
         else{
             $mauvaisesLettres[]=$lettre;
             $nbErreur+=1;
