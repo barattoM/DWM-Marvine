@@ -1,4 +1,5 @@
 <?php
+/******************************************************************* FONCTION *************************************************************************** */
 /**
  * Affiche le tableau entré en paramètre
  * et sépare les lettres par des espaces.
@@ -22,14 +23,34 @@ function afficherTableau($tab){
  * 
  *
  *  @param   string   $mot    mot à coder
+ * @param int $difficulte   mode de difficulté du pendu
  *
  *  @return  array    $tab    tableau contenant des _ pour chaque caractères de $mot
  */
-function coderMot($mot){
-    for($i=0;$i<strlen($mot);$i++){
-        $tab[$i]="_";
+function coderMot($mot,$difficulte){
+    $tab=str_split($mot);   
+    switch($difficulte){
+        case 1:
+            for($i=1;$i<strlen($mot)-1;$i++){
+                $tab[$i]="_";
+            }
+            return $tab;
+            break;
+        case 2:
+            for($i=0;$i<strlen($mot);$i++){
+                    $tab[$i]="_";
+                }
+                return $tab;
+            break;
+        case 3:
+            for($i=0;$i<strlen($mot);$i++){
+                $tab[$i]="_";
+            }
+            return $tab;
+            break;
+
     }
-    return $tab;
+    
 }
 
 /**
@@ -74,12 +95,11 @@ function testerLettre($lettre,$tab,$depart){
  * affectant la lettre à la position passée en paramètre
  * 
  * @param string $lettre    lettre à placer dans le tableau
- * @param array  $tab       tableau a modifié
+ * @param array  $tab       tableau à modifier
  * @param int    $position  position à laquelle la lettre doit être placé
  * 
  * @return  array $tab      tableau modifié avec la lettre
  */
-
 function ajouterUneLettre($lettre,$tab,$position){
     $tab[$position]=$lettre;
     return $tab;
@@ -1022,17 +1042,31 @@ function testerGagner($nbErreur,$tab){
 /**
  * méthode qui lance et gère une partie 
  * 
+ * @param int $difficulte
+ * 
  * @return void
  */
-function lancerPartie(){
+function lancerPartie($difficulte){
     $mot= choisirMot();
     $motTableau=str_split($mot);
-    $motCode= coderMot($mot);
+    switch($difficulte){
+        case 1:
+            $nbErreur=0;
+            $motCode= coderMot($mot,$difficulte);
+        break;
+        case 2:
+            $nbErreur=2;
+            $motCode= coderMot($mot,$difficulte);
+        break;
+        case 3:
+            $nbErreur=3;
+            $motCode= coderMot($mot,$difficulte);
+        break;
+    }
     $mauvaisesLettres=[];
-    $nbErreur=0;
     $gagne=0;
     do{
-    //affichage
+    //affichage du mot codé
         afficherTableau($motCode);
         echo "\n";
     //affichage des mauvaises lettres seulement si il y en a
@@ -1044,29 +1078,125 @@ function lancerPartie(){
         //echo $mot;
 
     //Ajout des lettres
-        //Saisie utilisateur: demande une lettre tant que l'utilisateur entre une lettre déja donné
-        $lettre=demanderLettre();  
-        while(in_array($lettre,$mauvaisesLettres) || in_array($lettre,$motCode) ){
-            echo "\nVous avez déja donné cette lettre, veuillez en saisir une autre\n";
-            $lettre=demanderLettre();
-        }
 
-        $positions=testerLettre($lettre,$motTableau,0);
-        //Si la lettre est dans le mot on récupère les positions
-        if(!empty($positions)){
-            $motCode=ajouterLesLettres($lettre,$motCode,$positions);
-        }
-        //Si la lettre n'est pas dans le mot on ajoute la lettre dans les mauvaises lettres et on incremente le nombre d'erreurs
-        else{
-            $mauvaisesLettres[]=$lettre;
-            $nbErreur+=1;
-        }
+/*************************************************************************** V2 *****************************************************************************/        
+        switch($difficulte){
+            case 1:
+                //Saisie utilisateur: demande une lettre tant que l'utilisateur entre une lettre déja donné
+                $lettre=demanderLettre();
+                //mode facile
+                $motFacile=array_slice($motCode,1,count($motCode)-2);//on ne prend pas en compte la 1ere et la dernière lettre car elle sont déja donnée (pour palier aux mots terminant ou commençant par une lettre présentes dans le mot)
+                while(in_array($lettre,$mauvaisesLettres) || in_array($lettre,$motFacile) ){ //Vérification sur $motFacile pour palier au mot contenant la même lettre que la 1ere ou dernière
+                    echo "\nVous avez déja donné cette lettre, veuillez en saisir une autre\n";
+                    $lettre=demanderLettre();
+                }
+                $positions=testerLettre($lettre,$motTableau,0);
+                //Si la lettre est dans le mot on ajoute cette lettre dans le mot codé
+                if(!empty($positions)){
+                    $motCode=ajouterLesLettres($lettre,$motCode,$positions);
+                }else{
+                    $mauvaisesLettres[]=$lettre;
+                    $nbErreur+=1;
+                }
+            break;
 
-        echo"\n";
-        dessinerPendu($nbErreur);
-        echo "\n";
+            case 2:
+                //Saisie utilisateur: demande une lettre tant que l'utilisateur entre une lettre déja donné
+                $lettre=demanderLettre();
+                //mode normal
+                while(in_array($lettre,$mauvaisesLettres)){
+                    echo "\nVous avez déja donné cette lettre, veuillez en saisir une autre\n";
+                    $lettre=demanderLettre();
+                }
+                //on regarde si le joueur re-rentre la même lettre qui était bonne: si la lettre a déja été donné alors on augmente le nombre d'erreur et on la renseigne dans le tableau mauvaisesLettres
+                if(in_array($lettre,$motCode)===false){
+                    $positions=testerLettre($lettre,$motTableau,0);
+                    //Si la lettre est dans le mot on ajoute cette lettre dans le mot codé
+                    if(!empty($positions)){
+                        $motCode=ajouterLesLettres($lettre,$motCode,$positions);
+                    }else{
+                        $mauvaisesLettres[]=$lettre;
+                        $nbErreur+=1;
+                    }
+                }else{
+                    $mauvaisesLettres[]=$lettre;
+                    $nbErreur+=1;
+                }
+                
+            break;
+
+            case 3:
+                //mode difficile : pas de vérif
+                $lettre=demanderLettre();
+                $positions=testerLettre($lettre,$motTableau,0);   
+                if(!empty($positions)){
+                    //mode difficile : remplissage lettre par lettre
+                        if(count(testerLettre($lettre,$motCode,0))==count($positions)){ //On regarde si dans le mot codé il reste des occurences de la lettre: on compte le nombre de postions retrouver dans les 2 tableaux si c'est le même alors la lettre n'est plus dans le mot
+                            $mauvaisesLettres[]=$lettre;
+                            $nbErreur+=1;
+                        }else{
+                            $position[0]=$positions[rand(0,count($positions)-1)]; //On récupère une position aléatoire dans les bonnes réponse
+                            while($motCode[$position[0]]==$lettre){ //On boucle tant que la position d'une des occurences a déja été renseigné
+                                $position[0]=$positions[rand(0,count($positions)-1)];
+                            }
+                            $motCode=ajouterLesLettres($lettre,$motCode,$position);
+                            $position=[];
+                        }        
+                }
+                //Si la lettre n'est pas dans le mot on ajoute la lettre dans les mauvaises lettres et on incremente le nombre d'erreurs
+                else{
+                    $mauvaisesLettres[]=$lettre;
+                    $nbErreur+=1;
+                }
+            break;
+        }
         
-        $gagne=testerGagner($nbErreur,$motCode);
+/*************************************************************************** FIN V2 *****************************************************************************/  
+
+/****************************************************** V1 ***************************************************/    
+    // //Saisie utilisateur: demande une lettre tant que l'utilisateur entre une lettre déja donné
+    // $lettre=demanderLettre();
+    // //mode facile
+    // /*while(in_array($lettre,$mauvaisesLettres) || in_array($lettre,$motCode) ){
+    //     echo "\nVous avez déja donné cette lettre, veuillez en saisir une autre\n";
+    //     $lettre=demanderLettre();
+    // }*/
+    // //mode normal
+    // /*while(in_array($lettre,$mauvaisesLettres)){
+    //     echo "\nVous avez déja donné cette lettre, veuillez en saisir une autre\n";
+    //     $lettre=demanderLettre();
+    // }*/
+    // //mode difficile : pas de vérif
+    
+    // $positions=testerLettre($lettre,$motTableau,0);
+    // if(!empty($positions)){
+    //     //mode facile
+    //     /*$motCode=ajouterLesLettres($lettre,$motCode,$positions);*/
+    //     //mode normal
+    //     /*$motCode=ajouterLesLettres($lettre,$motCode,$positions);*/
+    //     //mode difficile : remplissage lettre par lettre
+    //         if(count(testerLettre($lettre,$motCode,0))==count($positions)){ //On regarde si dans le mot codé il reste des occurences de la lettre: on compte le nombre de postions retrouver dans les 2 tableaux si c'est le même alors la lettre n'est plus dans le mot
+    //             $mauvaisesLettres[]=$lettre;
+    //             $nbErreur+=1;
+    //         }else{
+    //             $position[0]=$positions[rand(0,count($positions)-1)]; //On récupère une position aléatoire dans les bonnes réponse
+    //             while($motCode[$position[0]]==$lettre){ //On boucle tant que la position d'une des occurences a déja été renseigné
+    //                 $position[0]=$positions[rand(0,count($positions)-1)];
+    //             }
+    //             $motCode=ajouterLesLettres($lettre,$motCode,$position);
+    //             $position=[];
+    //         }
+    // }
+    // //Si la lettre n'est pas dans le mot on ajoute la lettre dans les mauvaises lettres et on incremente le nombre d'erreurs
+    // else{
+    //     $mauvaisesLettres[]=$lettre;
+    //     $nbErreur+=1;
+    // }
+/*********************************************************************Fin V1 ***************************************************************************/
+    echo"\n";
+    dessinerPendu($nbErreur);
+    echo "\n";       
+    $gagne=testerGagner($nbErreur,$motCode);
 
     }while($gagne==0);
 
@@ -1077,8 +1207,10 @@ function lancerPartie(){
         echo "Vous avez perdu, le mot était ".$mot;
     }
 }
+/******************************************************************* FIN FONCTION *************************************************************************** */
 
-/*********************** Main ************************************/
+
+/******************************************************************* Main ************************************************************************************/
 
 //test afficherTableau
 /*$t=["B","O","N","J","O","U","R"];
@@ -1089,7 +1221,7 @@ afficherTableau($t);*/
 /*$test="bonjour";
 echo "Cette méthode doit donner _ _ _ _ _ _ _ et ca donne : ";
 
-afficherTableau(coderMot($test));*/
+afficherTableau(coderMot($test,3));*/
 
 //test testerLettre
 /*$t = array( 'B', 'O', 'N', 'J', 'O', 'U', 'R' );
@@ -1134,4 +1266,11 @@ $t[1] =  'O' ;
 Echo "Cette méthode doit donner 1 et ca donne " . testerGagner(2, $t)."\n";*/
 
 //test lancerPartie
-lancerPartie();
+echo "Quelle difficulté voulez vous ? ";
+echo "\n 1- Facile";
+echo "\n 2- Normal";
+echo "\n 3- Difficile\n";
+$difficulte=readline();
+lancerPartie($difficulte);
+
+/********************************************************************FIN MAIN *********************************************************************************** */
