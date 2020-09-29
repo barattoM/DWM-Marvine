@@ -1048,11 +1048,13 @@ function testerGagner($nbErreur,$tab){
  */
 function lancerPartie($difficulte){
     $mot= choisirMot();
+    $mot="TELEPHONE";
     $motTableau=str_split($mot);
     switch($difficulte){
         case 1:
             $nbErreur=0;
             $motCode= coderMot($mot,$difficulte);
+            $lettreDonne=[];
         break;
         case 2:
             $nbErreur=2;
@@ -1075,7 +1077,7 @@ function lancerPartie($difficulte){
         }
         echo "\n";
         
-        //echo $mot;
+        echo $mot;
 
     //Ajout des lettres
 
@@ -1085,8 +1087,7 @@ function lancerPartie($difficulte){
                 //Saisie utilisateur: demande une lettre tant que l'utilisateur entre une lettre déja donné
                 $lettre=demanderLettre();
                 //mode facile
-                $motFacile=array_slice($motCode,1,count($motCode)-2);//on ne prend pas en compte la 1ere et la dernière lettre car elle sont déja donnée (pour palier aux mots terminant ou commençant par une lettre présentes dans le mot)
-                while(in_array($lettre,$mauvaisesLettres) || in_array($lettre,$motFacile) ){ //Vérification sur $motFacile pour palier au mot contenant la même lettre que la 1ere ou dernière
+                while(in_array($lettre,$mauvaisesLettres) || in_array($lettre,$lettreDonne)){
                     echo "\nVous avez déja donné cette lettre, veuillez en saisir une autre\n";
                     $lettre=demanderLettre();
                 }
@@ -1094,6 +1095,7 @@ function lancerPartie($difficulte){
                 //Si la lettre est dans le mot on ajoute cette lettre dans le mot codé
                 if(!empty($positions)){
                     $motCode=ajouterLesLettres($lettre,$motCode,$positions);
+                    $lettreDonne[]=$lettre;
                 }else{
                     $mauvaisesLettres[]=$lettre;
                     $nbErreur+=1;
@@ -1135,12 +1137,25 @@ function lancerPartie($difficulte){
                             $mauvaisesLettres[]=$lettre;
                             $nbErreur+=1;
                         }else{
+                            //Ajout des lettres avec random, non optimisé
                             $position[0]=$positions[rand(0,count($positions)-1)]; //On récupère une position aléatoire dans les bonnes réponse
                             while($motCode[$position[0]]==$lettre){ //On boucle tant que la position d'une des occurences a déja été renseigné
                                 $position[0]=$positions[rand(0,count($positions)-1)];
                             }
                             $motCode=ajouterLesLettres($lettre,$motCode,$position);
-                            $position=[];
+                            
+                            //ajout des lettres de droite à gauche sans random
+                            $pos=count($positions)-1-count(testerLettre($lettre,$motCode,0));
+                            $position[0]=$positions[$pos];
+                            $motCode=ajouterLesLettres($lettre,$motCode,$position);
+
+                            //Ajout des lettres avec random, optimisé
+                                //on retire les positions déja utilisé de $positions
+                            if($mot){
+
+                            }
+                            $pos=rand(0,count($positions)-1-count(testerLettre($lettre,$motCode,0)));
+
                         }        
                 }
                 //Si la lettre n'est pas dans le mot on ajoute la lettre dans les mauvaises lettres et on incremente le nombre d'erreurs
