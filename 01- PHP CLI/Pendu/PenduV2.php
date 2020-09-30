@@ -961,7 +961,7 @@ function ajouterLesLettres($val, $tab, $tabpos, $niveau)
  /***********************************************************A finir **********************************************************************/           
         case 3:
             // on place les lettres aléatoirement
-                //on retire les positions déja utilisés de $tabpos
+                /*//on retire les positions déja utilisés de $tabpos
                 for($i=0;$i<count($tab);$i++){
                     if($tab[$i]==$val){
                         unset($tabpos[$i]); 
@@ -976,6 +976,19 @@ function ajouterLesLettres($val, $tab, $tabpos, $niveau)
                     $pos=rand(0,count($tabpos)-1);
                     $tab=ajouterUneLettre($val, $tab, $pos);
                     return $tab;
+                }*/
+
+                $test=testerLettre($val,$tab,0);    //on cherche les lettres déjà placées dans le mot code
+                $pos=array_diff($tabpos,$test);     //différence entre les tableaux
+                if(!empty($pos))        //s'il reste des lettres à placer
+                {
+                    $posetudie=array_rand($pos);    //on choisit une position au hasard
+                    $tab = ajouterUneLettre($val, $tab, $pos[$posetudie]);
+                    return $tab;
+                }
+                else    //il n'y a plus de lettre à placer
+                {
+                    return -1;
                 }
 /***********************************************************Fin à finir **********************************************************************/               
                 
