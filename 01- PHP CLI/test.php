@@ -1,7 +1,12 @@
 <?php
-include "fonction.php";
-$t=creaTableau(5);
-echo affichageTableau($t)."\n";
-$t2=creaTableau2();
-echo affichageTableau2($t2);
-?>
+function inverserMot($mot){
+    $longueur=strlen($mot);
+    if($longueur==1){
+        return $mot;
+    }
+    else{
+        return substr($mot,$longueur-1).inverserMot(substr($mot,0,$longueur-1));
+    }
+}
+
+echo inverserMot("Bonjour");
