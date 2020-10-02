@@ -40,10 +40,8 @@ Class Personne{
 
     //Methode
     public function toString(){
-        echo "Age : ";
-        echo "Nom : ";
-        echo "Prenom :";
+        return "Age : ".$this->_age."\n"."Nom : ".$this->_prenom."\n"."Prenom : ".$this->_nom."\n";
     }
 }
 $p1=new Personne(20,"Dupont","Toto");
-$p1->toString();
+echo $p1->toString();
