@@ -1,5 +1,6 @@
 <?php
-Class Employe{
+class Employe
+{
     /***************************** Attributs *****************************/
     private $_nom;
     private $_prenom;
@@ -7,9 +8,9 @@ Class Employe{
     private $_poste;
     private $_salaire;
     private $_service;
-    private static $_nbEmploye=0;
+    private static $_nbEmploye = 0;
     private $_agence;
-    private $_enfants;
+    private $_enfants = [];
 
     /********************************Accesseurs **************************/
     public function getNom()
@@ -96,7 +97,7 @@ Class Employe{
         return $this->_enfants;
     }
 
-    public function setEnfants(Array $enfants)
+    public function setEnfants(array $enfants)
     {
         $this->_enfants = $enfants;
     }
@@ -112,8 +113,7 @@ Class Employe{
     }
     public function hydrate($data)
     {
-        foreach ($data as $key => $value)
-        {
+        foreach ($data as $key => $value) {
             $methode = "set" . ucfirst($key); //ucfirst met la 1ere lettre en majuscule
             if (is_callable(([$this, $methode]))) // is_callable verifie que la methode existe
             {
@@ -125,40 +125,43 @@ Class Employe{
     /********************************Methode *****************************/
 
     /**
-    * Transforme l'objet en chaine de caractères
-    *
-    * @return String
-    */
-    public function toString(){
-        return "\nNom : ".$this->getNom()."\tPrenom : ".$this->getPrenom().
-                "\nDate d'embauche : ".$this->getDateEmbauche()->format("d-m-Y")."\tPoste : ".$this->getPoste().
-                "\nSalaire : ".$this->getSalaire()."\tService : ".$this->getService().
-                "\n******************Enfants**********************".
-                "\nIl a ".count($this->getEnfants())." : ".
-                "\n".
-                "\n******************Agence***********************".
-                "\n".$this->getAgence()->toString();
+     * Transforme l'objet en chaine de caractères
+     *
+     * @return String
+     */
+    public function toString()
+    {
+        return "\nNom : " . $this->getNom() . "\tPrenom : " . $this->getPrenom() .
+        "\nDate d'embauche : " . $this->getDateEmbauche()->format("d-m-Y") . "\tPoste : " . $this->getPoste() .
+        "\nSalaire : " . $this->getSalaire() . "\tService : " . $this->getService() .
+        "\n******************Enfants**********************" .
+        "\nIl a " . count($this->getEnfants()) . " enfants : " .
+        "\n" . $this->affichageEnfants() .
+        "\n******************Agence***********************" .
+        "\n" . $this->getAgence()->toString();
     }
     /**
-    * Renvoi vrai si l'objet en paramètre est égal à l'objet appelant
-    *
-    * @param [type] obj
-    * @return bool
-    */
-    public function equalsTo(){
-        return  "";
+     * Renvoi vrai si l'objet en paramètre est égal à l'objet appelant
+     *
+     * @param [type] obj
+     * @return bool
+     */
+    public function equalsTo()
+    {
+        return "";
     }
     /**
-    * Compare 2 objets
-    * Renvoi 1 si le 1er est >
-    *        0 si ils sont égaux
-    *        -1 si le 1er est <
-    *
-    * @param [type] obj1
-    * @param [type] obj2
-    * @return void
-    */
-    public function compareTo(){
+     * Compare 2 objets
+     * Renvoi 1 si le 1er est >
+     *        0 si ils sont égaux
+     *        -1 si le 1er est <
+     *
+     * @param [type] obj1
+     * @param [type] obj2
+     * @return void
+     */
+    public function compareTo()
+    {
         return "";
     }
 
@@ -174,20 +177,13 @@ Class Employe{
      */
     public static function compareToNomPrenom($obj1, $obj2)
     {
-        if ($obj1->getNom() < $obj2->getNom())
-        {
+        if ($obj1->getNom() < $obj2->getNom()) {
             return -1;
-        }
-        else if ($obj1->getNom() > $obj2->getNom())
-        {
+        } else if ($obj1->getNom() > $obj2->getNom()) {
             return 1;
-        }
-        else if ($obj1->getPrenom() < $obj2->getPrenom())
-        {
+        } else if ($obj1->getPrenom() < $obj2->getPrenom()) {
             return -1;
-        }
-        else if ($obj1->getPrenom() > $obj2->getPrenom())
-        {
+        } else if ($obj1->getPrenom() > $obj2->getPrenom()) {
             return 1;
         }
 
@@ -206,16 +202,11 @@ Class Employe{
      */
     public static function compareToServiceNomPrenom($obj1, $obj2)
     {
-        if ($obj1->getService() < $obj2->getService())
-        {
+        if ($obj1->getService() < $obj2->getService()) {
             return -1;
-        }
-        else if ($obj1->getService() > $obj2->getService())
-        {
+        } else if ($obj1->getService() > $obj2->getService()) {
             return 1;
-        }
-        else
-        {
+        } else {
             return self::compareToNomPrenom($obj1, $obj2);
         }
 
@@ -226,34 +217,38 @@ Class Employe{
      *
      * @return Int année d'anciennete
      */
-    public function anneeAnciennete(){
-        $date=new DateTime('now'); // date actuelle
-        $anneeAnciennete=$date->diff($this->getDateEmbauche(),true); //différence entre la date actuelle et la date d'embauche
-        return $anneeAnciennete->format("%Y")*1; //on récupère l'année et on fait *1 pour renvoyer un entier
+    public function anneeAnciennete()
+    {
+        $date = new DateTime('now'); // date actuelle
+        $anneeAnciennete = $date->diff($this->getDateEmbauche(), true); //différence entre la date actuelle et la date d'embauche
+        return $anneeAnciennete->format("%Y") * 1; //on récupère l'année et on fait *1 pour renvoyer un entier
     }
     /**
      * Calcule et renvoie la prime lié au salaire
      *
      * @return Float prime lié au salaire
      */
-    private function primeSalaire(){
-        return ($this->getSalaire()*1000)*0.05;
+    private function primeSalaire()
+    {
+        return ($this->getSalaire() * 1000) * 0.05;
     }
     /**
      * Calcule et renvoie la prime lié à l'ancienneté
      *
      * @return Float prime lié à l'ancienneté
      */
-    private function primeAnciennete(){
-        return ($this->getSalaire()*1000)*(0.02*$this->anneeAnciennete());
+    private function primeAnciennete()
+    {
+        return ($this->getSalaire() * 1000) * (0.02 * $this->anneeAnciennete());
     }
     /**
      * Calcule et renvoie la prime totale
      *
      * @return Float prime total
      */
-    public function prime(){
-        return $this->primeSalaire()+$this->primeAnciennete();      
+    public function prime()
+    {
+        return $this->primeSalaire() + $this->primeAnciennete();
     }
 
     /**
@@ -263,18 +258,93 @@ Class Employe{
      */
     public function masseSalariale()
     {
-        return $this->getSalaire()*1000+ $this->prime();
+        return $this->getSalaire() * 1000 + $this->prime();
     }
     /**
      * Renvoie true si l'employé a accès aux cheques vacances, false sinon
      *
-     * @return boolean  
+     * @return boolean
      */
-    public function chequesVacances(){
-        return $this->anneeAnciennete()>=1 ? TRUE : FALSE;
+    public function chequesVacances()
+    {
+        return $this->anneeAnciennete() >= 1 ? true : false;
     }
 
- 
+    /**
+     * Renvoie les informations des enfants de l'employé
+     *
+     * @return String
+     */
+    private function affichageEnfants()
+    {
+        $info = "";
+        foreach ($this->getEnfants() as $elt) {
+            $info .= $elt->toString() . "\n";
+        }
+        return $info;
+    }
 
-    
+    /**
+     * Renvoie l'age des enfants de l'employé sous forme de tableau
+     *
+     * @return array
+     */
+    private function ageEnfants()
+    {
+        foreach ($this->getEnfants() as $elt) {
+            $ageEnfants[] = $elt->age();
+        }
+        return $ageEnfants;
+    }
+
+    /**
+     * Renvoie true si l'employé peut avoir des cheques de noel, false si il ne peut pas
+     *
+     * @return boolean
+     */
+    private function chequesNoel()
+    {
+        if (empty($this->getEnfants())) {
+            return false;
+        } else {
+            $ageEnfants = $this->ageEnfants();
+            $compteur = 0;
+            foreach ($ageEnfants as $elt) {
+                if ($elt > 18) {
+                    $compteur++;
+                }
+            }
+            if ($compteur == count($ageEnfants)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
+    /**
+     * Retourne un tableau contenant le montant des chèques de Noel de l'employé
+     *
+     * @return array
+     */
+    public function tableauChequeNoel()
+    {
+        if ($this->chequesNoel()) {
+            foreach ($this->ageEnfants() as $elt) {
+                if ($elt >= 0 && $elt <= 10) {
+                    $tableauChequeNoel[] = 20;
+                } else {
+                    if ($elt >= 11 && $elt <= 15) {
+                        $tableauChequeNoel[] = 30;
+                    } else {
+                        if ($elt >= 16 && $elt <= 18) {
+                            $tableauChequeNoel[] = 50;
+                        }
+                    }
+                }
+            }
+            return $tableauChequeNoel;
+        }
+        return [];
+    }
 }
