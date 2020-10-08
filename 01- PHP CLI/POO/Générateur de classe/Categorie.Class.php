@@ -56,7 +56,7 @@
 	* @return String
 	*/
 	public function toString(){
-		return "libelle : ".$this->getLibelle()	."tva : ".$this->getTva()	;
+		return "libelle : ".$this->getLibelle()	." tva : ".$this->getTva()	;
 	}
 
 	/**

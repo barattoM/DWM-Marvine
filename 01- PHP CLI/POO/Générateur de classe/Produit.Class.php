@@ -120,9 +120,9 @@
 				."\ncouleur : ".$this->getCouleur()	." dateValidite : ".$this->getDateValidite()->format("d-m-Y")
 				."\nprixHT : ".$this->getPrixHT()
 				."\n***********Categorie*************"
-				."\ncategorie : ".$this->getCategorie()->toString()
+				."\n".$this->getCategorie()->toString()
 				."\n********Lieux de stockage *******"
-				."\nlieuxStockage : \n".$this->affichageLieuStockage();
+				."\n".$this->affichageLieuStockage();
 	}
 
 	/**
