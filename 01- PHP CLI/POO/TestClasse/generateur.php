@@ -1,17 +1,17 @@
 <?php
 /************************Fonction ******************************************/
-function demandeEntier($message){ // Demande un entier à l'utilisateur
+function demandeEntier(){ // Demande un entier à l'utilisateur
     do
     {
         do
         {
-            $nombre = readline($message);
+            $nombre = readline("Donnez le nombre d'attributs de la classe : ");
         } while (!is_numeric($nombre)); // on verifie que la chaine de caracterer ne contient que des chiffres
     } while (!is_int($nombre * 1)); // on vérifie que le nombre est entier (pas réel)
     return $nombre; //renvoi le nombre saisi
 }
 
-function affichageAttributsPrive(Array $attributs){
+function affichageAttributs(Array $attributs){
     $att="";
     foreach($attributs as $elt){
         $att.="\n\t".'private $_'.$elt." ;";
@@ -19,15 +19,7 @@ function affichageAttributsPrive(Array $attributs){
     return $att;
 }
 
-function affichageAttributsStatic(Array $attributs){
-    $att="";
-    foreach($attributs as $elt){
-        $att.="\n\t".'private static $_'.$elt." ;";
-    }
-    return $att;
-}
-
-function creationSettersGettersPrive(Array $attributs){
+function creationSettersGettersPublic(Array $attributs){
     $getSet="";
     foreach($attributs as $elt){
         $getSet.="\n\tpublic function get".ucfirst($elt).'()'
@@ -37,21 +29,6 @@ function creationSettersGettersPrive(Array $attributs){
                     ."\n\n\tpublic function set".ucfirst($elt).'($'.$elt.')'
                     ."\n\t{"
                     ."\n\t\t".'$this->_'.$elt.' = $'.$elt.';'
-                    ."\n\t}";
-    }
-    return $getSet;
-}
-
-function creationSettersGettersStatic(Array $attributs){
-    $getSet="";
-    foreach($attributs as $elt){
-        $getSet.="\n\tpublic function get".ucfirst($elt).'()'
-                    ."\n\t{"
-                    ."\n\t\t".'return self::$_'.$elt.';'
-                    ."\n\t}"
-                    ."\n\n\tpublic function set".ucfirst($elt).'($'.$elt.')'
-                    ."\n\t{"
-                    ."\n\t\t".'self::$_'.$elt.' = $'.$elt.';'
                     ."\n\t}";
     }
     return $getSet;
@@ -70,11 +47,8 @@ function creationToString(Array $attributs){
 
 //Saisie utilisateur
 
-//nom de la classe
-$nomClasse=readline("Donnez le nom de la classe : ");
-$nomClasse[0]=strtoupper($nomClasse[0]);
+$nomClasse=ucfirst(readline("Donnez le nom de la classe : "));
 
-//Heritage
 $heritage=false;
 $choix=strtoupper(readline("La classe est elle une fille ? (O/N) : "));
 while($choix!="O" && $choix!="N"){
@@ -83,35 +57,18 @@ while($choix!="O" && $choix!="N"){
 }
 if($choix=="O"){
     $heritage=true;
-    //Nom de la classe mère
     $nomClasseMere=ucfirst(readline("Donnez le nom de la classe mère : "));
-    $nomClasseMere[0]=strtoupper($nomClasseMere[0]);
 }
 
-//Attributs privé
-$nbAttributsPrive=demandeEntier("Donnez le nombre d'attributs privé de la classe : ");
-$attributsPrive=[];
-for($i=0;$i<$nbAttributsPrive;$i++){
+$nbAttributs=demandeEntier();
+$attributs=[];
+for($i=0;$i<$nbAttributs;$i++){
     $attribut=readline("Donnez le nom de l'attribut : ");
-    while(!ctype_alpha($attribut) || in_array($attribut,$attributsPrive)){
+    while(!ctype_alpha($attribut) || in_array($attribut,$attributs)){
         echo "Erreur de saisie\n";
         $attribut=readline("Donnez le nom de l'attribut : ");
     }
-
-    $attributsPrive[]=$attribut;
-}
-
-//Attributs static
-$nbAttributsStatic=demandeEntier("Donnez le nombre d'attributs static de la classe : ");
-$attributsStatic=[];
-for($i=0;$i<$nbAttributsStatic;$i++){
-    $attribut=readline("Donnez le nom de l'attribut : ");
-    while(!ctype_alpha($attribut) || in_array($attribut,$attributsStatic) || in_array($attribut,$attributsPrive)){
-        echo "Erreur de saisie\n";
-        $attribut=readline("Donnez le nom de l'attribut : ");
-    }
-
-    $attributsStatic[]=$attribut;
+    $attributs[]=$attribut;
 }
 
 //Création du fichier
@@ -120,25 +77,23 @@ $fp = fopen('./'.$nomClasse.'.Class.php', "w");
 //Haut de page
 if($heritage){
     $hautDePage='<?php'."\n\n".
-                'Class '.$nomClasse.' extends '.$nomClasseMere.' {';
+                ' Class '.$nomClasse.' extends '.$nomClasseMere.' {';
 }else{
     $hautDePage='<?php'."\n\n".
-                'Class '.$nomClasse.' {';
+            ' Class '.$nomClasse.' {';
 }
 
 fputs($fp,$hautDePage);
 
 //Attributs
 $pageAttributs="\n\t".'/***************************************** Attributs **********************************************/'.
-                "\n".affichageAttributsPrive($attributsPrive)
-                ."\n".affichageAttributsStatic($attributsStatic)."\n";
+                "\n".affichageAttributs($attributs)."\n";
 
 fputs($fp,$pageAttributs);
 
 //Getter Setters
 $pageSettersGetters="\n\t".'/***************************************** Accesseurs **********************************************/'.
-                    "\n\t".creationSettersGettersPrive($attributsPrive)
-                    ."\n\t".creationSettersGettersStatic($attributsStatic)
+                    "\n\t".creationSettersGettersPublic($attributs)
                     ."\n";
 
 fputs($fp,$pageSettersGetters);
@@ -172,7 +127,6 @@ fputs($fp,$pageConstructeur);
 
 //Methodes
 //toString
-$attributs=array_merge($attributsPrive,$attributsStatic);
 $pageToString="\n\t".'/***************************************** Methode **********************************************/'
                 ."\n\n\t".'/**'
                 ."\n\t".'* Transforme l\'objet en chaine de caractères'
