@@ -97,7 +97,7 @@ for($i=0;$i<$nbAttributsPrive;$i++){
         echo "Erreur de saisie\n";
         $attribut=readline("Donnez le nom de l'attribut : ");
     }
-    $attribut[0]=strtolower($attribut[0]);
+
     $attributsPrive[]=$attribut;
 }
 
@@ -110,7 +110,7 @@ for($i=0;$i<$nbAttributsStatic;$i++){
         echo "Erreur de saisie\n";
         $attribut=readline("Donnez le nom de l'attribut : ");
     }
-    $attribut[0]=strtolower($attribut[0]);
+
     $attributsStatic[]=$attribut;
 }
 
