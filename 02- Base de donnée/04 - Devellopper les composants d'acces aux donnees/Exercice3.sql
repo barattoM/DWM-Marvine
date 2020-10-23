@@ -93,5 +93,19 @@ UPDATE avoir_note SET note=note-3 WHERE idEtudiant= (SELECT idEtudiant from etud
 O) DEWA a manqué l épreuve 4. Vu son niveau, on décide de lui créer une entrée dans AVOIR_NOTE en lui
 attribuant la moyenne des notes obtenues à cette épreuve par ses collègues*0.9. Attention, la requête doit
 intégrer le nom de l étudiant (et non chercher à repérer le numéro avant de la taper.)
+
+id de DEWA :
+SELECT `idEtudiant` FROM `etudiants` WHERE nomEtudiant="DEWA" 
+
+moyenne de l épreuve 4:
+SELECT AVG(note)*0.9 FROM `avoir_note` WHERE idAvoirNote=4 
+
+Final:
+
+INSERT INTO `avoir_note`(`idAvoirNote`, `idEtudiant`, `idEpreuve`, `note`) VALUES (null,(SELECT `idEtudiant` FROM `etudiants` WHERE nomEtudiant="DEWA"),4,(SELECT AVG(note)*0.9 FROM `avoir_note` as a WHERE a.idAvoirNote=4) ) 
+
+
 P)Insérez un nouvel étudiant dont vous ne connaissez que le numéro, le nom, le prénom, le hobby et
 l année: 25, 'DARTE','REMY','SCULPTURE',1.
+
+INSERT INTO `etudiants`(`idEtudiant`, `nomEtudiant`, `prenomEtudiant`,`hobby`,`anneeEtudiant`) VALUES (25,"DARTE","REMY","SCULPTURE",1)
