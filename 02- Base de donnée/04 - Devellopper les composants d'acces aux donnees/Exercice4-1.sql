@@ -100,7 +100,7 @@ SELECT `nom`,`salaire`,`tauxcom`,`tauxcom`*`salaire` as commission FROM `employe
 
 27.Afficher le nom, le salaire, le taux de commission, la commission des employés dont le taux de commission n est pas nul, classé par taux de commission croissant. 
 
-SELECT `nom`,`salaire`,`tauxcom`,`tauxcom`*`salaire` as commission FROM `employe` WHERE `tauxcom` IS NOT NULL ORDER BY commission
+SELECT `nom`,`salaire`,`tauxcom`,`tauxcom`*`salaire` as commission FROM `employe` WHERE `tauxcom` IS NOT NULL ORDER BY `tauxcom`
 
 28. Afficher le nom et le prénom (concaténés) des employés. Renommer les colonnes
 
