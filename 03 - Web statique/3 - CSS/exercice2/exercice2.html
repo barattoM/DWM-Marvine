@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="style2.css">
+  <script src="script.js"></script>
+</head>
+<body>
+    <p>Please complete the form below. Mandatory fields marked <span class="rouge">*</span> </p>
+<div class="form"> 
+    <div class="box">
+        <p><b>Delivery Details</b></p>
+        <hr>
+    </div>  
+    
+    <form>Name<span class="rouge">*</span><input class="texte" type="text">
+        <hr>
+        Address<span class="rouge">*</span><input class ="texte" type="text">
+        <hr>
+        Town/City<input class ="texte" type="text">
+        <hr>
+        County<span class="rouge">*</span><input class ="texte" type="text">
+        <hr>
+        PostCode<span class="rouge">*</span><input class ="texte" type="text">
+        <hr>
+        Is this address also your invoice address?<span class="rouge">*</span>
+        <div class="radio">
+            <input type="radio" id="Yes" name="address" value="Yes"
+                   checked>
+            <label for="Yes">Yes</label>
+          </div>
+          
+          <div class="radio">
+            <input type="radio" id="No" name="address" value="No">
+            <label for="No">No</label>
+        </div>
+    </form>
+</div>
+</body>
+</html>

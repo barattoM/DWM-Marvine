@@ -1,0 +1,50 @@
+body{
+    background-color: blanchedalmond;
+}
+
+header{
+    background-color: rgb(50, 240, 2);
+    border:5px solid red;
+}
+
+h1{
+    text-align: center;
+    background-color: aquamarine;
+}
+
+#toto{
+    text-align: center;
+    color: red;
+}
+
+.sous{
+    color: skyblue;
+}
+
+#croissant{
+    border: 2px solid black;
+    background-color: white;  
+}
+
+.separateur{
+    color: rebeccapurple;
+
+}
+
+#interne{
+    margin-left: 10em;
+    margin-right: 10em;
+}
+
+.box{
+    display: flex;
+}
+
+#test{
+    border: 2px solid;
+    background-color: thistle;
+}
+
+footer{
+    background-color: yellowgreen;
+}

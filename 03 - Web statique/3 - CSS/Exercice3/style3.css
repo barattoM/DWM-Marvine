@@ -1,0 +1,49 @@
+header{
+    border : 1px black dashed;
+    padding: 2em;
+}
+section{
+    border : 1px black dashed;
+    width: 70vw; 
+    padding: 1em;
+    margin-left: 1em;
+}
+
+article{
+    background-color:rgb(214, 209, 209);
+    padding: 1em;
+    
+}
+
+.contenu{
+    padding-top: 1em;
+    padding-bottom: 1em; 
+}
+
+.tangentiel{
+    border : 1px black dashed;
+    margin-left: 5em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-left: 0.5em;
+}
+
+.piedArticle{
+    background-color: rgb(214, 209, 209);
+    padding: 1em;
+}
+
+nav{
+    border : 1px black dashed;
+    margin-left : 2em;
+
+}
+
+.box{
+    display: flex;
+    padding-top: 2em;
+}
+
+#navigation{
+    padding-left: 3em;
+}
