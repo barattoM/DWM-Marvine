@@ -1,0 +1,35 @@
+div {
+    display: flex;
+    flex: 1;
+    border: 1px solid blue;
+}
+
+header {
+    display: flex;
+}
+
+img {
+    width: 100%;
+}
+
+.titre {
+    flex: 2;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+}
+
+.div1 {
+    background-color: green;
+}
+
+.div2 {
+    background-color: red;
+}
+
+.div3 {
+    background-color: blue;
+}
+.espace{
+    margin: 0 1vw;
+}
