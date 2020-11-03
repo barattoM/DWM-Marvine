@@ -1,0 +1,151 @@
+div{
+    display: flex;
+    flex:1;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url("./fond.jpg");
+    height: 10px;
+    justify-content: center;
+    display: flex;
+}
+.espace{
+    flex:1;
+}
+
+img{
+    width: 100%;
+}
+
+/*Page*/
+.page{
+    flex-direction: column;
+    flex: none;
+    width: 80vw;
+}
+/*Header*/
+
+.logo{
+    flex :0.3;
+}
+
+.titre{
+    justify-content: center;
+    justify-items: center;
+    flex:3;
+}
+
+header{
+    display: flex;
+    background-image: url("./header.jpg");
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+nav{
+    display: flex;
+    background-image: url("./fond1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bouton{
+    background-image: url("./fond.jpg");
+    padding: 0.5em;
+    justify-content: center;
+    justify-items: center;
+    color: whitesmoke;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+}
+
+.menu{
+    flex:2;
+}
+
+/*Corps*/
+
+.corps{
+
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+
+/*Haut du corps*/
+.hautCorps{
+    margin-top: 2em;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    flex-direction: row;
+}
+
+/*video*/
+.video{
+    max-height: 55vh;
+}
+
+/*actu*/
+.titreActu{
+    background-color: blue;
+    flex:0.1;
+    justify-content: center;
+}
+
+.ingredients{
+    flex:2;
+}
+
+.photoActu{
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    flex:1;
+}
+
+.actu{
+    background-color: white;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-height: 55vh;
+}
+
+.recette{
+    margin-top: 5vh;
+}
+
+
+/*historique*/
+.historique{
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+article{
+    margin-top: 2em;
+    text-align: center;
+}
+
+.texte{
+    justify-content: center;
+    justify-items: center;
+}
+
+/*Footer*/
+
+footer{
+    display:flex;
+    background-image: url("./fond1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blanc{
+    color: white;
+}
