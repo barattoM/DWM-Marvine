@@ -1,0 +1,60 @@
+div{
+    display: flex;
+    flex: 1;
+}
+
+nav{
+    display: flex;
+    width: 50%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.espace{
+    flex:0.3;
+}
+
+.menu{
+    border: 3px black solid;
+    border-radius: 0.3em;
+    background-color: #ccc;
+    padding: 0.2em;
+    max-width: 7em;
+    min-width: 7em;
+}
+
+.menu:hover{
+    background-color: #bbb;
+    box-shadow: 0.2em 0.2em 0.2em black;
+}
+
+.bouton{
+    position: relative;
+    justify-content: center;
+    display: block; /*Pour afficher le sous menu en dessous si div est initialisé*/
+    text-align:center;
+}
+
+.bouton:hover .sousMenu{
+    display:flex;
+}
+
+.sousMenu{
+    display:none;
+    position: absolute;
+    flex-flow: column wrap;
+    background-color: #aaa;
+    border: 1px black solid;
+    border-radius: 0.3em;
+    justify-content: center;
+    justify-items: center;
+    width: 6.7em;
+}
+
+.choix{
+    margin-top: 0.2em;
+    justify-content: center;
+}
