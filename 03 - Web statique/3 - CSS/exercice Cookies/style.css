@@ -1,3 +1,5 @@
+/***************** General ***************/
+
 div{
     display: flex;
     flex:1;
@@ -9,12 +11,7 @@ body {
     padding: 0;
 }
 
-body{
-    background-image: url("./fond.jpg");
-    height: 10px;
-    justify-content: center;
-    display: flex;
-}
+
 .espace{
     flex:1;
 }
@@ -26,13 +23,21 @@ img{
 video{
     width: 100%;
 }
-/*Page*/
+/***************** Body *****************/
+body{
+    background-image: url("./fond.jpg");
+    height: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+/***************** Page *****************/
 .page{
     flex-direction: column;
     flex: none;
     width: 80vw;
 }
-/*Header*/
+/*************** Header ****************/
 
 .logo{
     flex :0.3;
@@ -51,30 +56,23 @@ header{
     background-position: center; 
 }
 
+/***************** Menus *****************/
+
 nav{
     display: flex;
     background-image: url("./fond1.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.bouton{
-    /* background-image: url("./fond.jpg"); */
-    background: linear-gradient(blue, aqua);
-    padding: 0.5em;
-    justify-content: center;
-    justify-items: center;
-    color: whitesmoke;
-    
-}
-
-.blocMenu{
     position: relative;
     flex:2;
+    justify-content: center;
 }
 
+/***            Bouton menu            ***/
+
 .menu{
+    flex:none;
     display: block;
     border-radius: 0.3em;
     border: 0.5px black solid;
@@ -83,9 +81,13 @@ nav{
     margin-right: 0.1em;
 }
 
-.menu:hover .sousMenu{
-    display:flex;
-    flex-direction: column;
+.bouton{
+    background: linear-gradient(blue, aqua);
+    padding: 0.5em;
+    justify-content: center;
+    justify-items: center;
+    color: whitesmoke;
+    
 }
 
 .sousMenu{
@@ -96,13 +98,30 @@ nav{
     border-radius: 0.3em;
     border: 0.5px black solid;
 
-}   
-
+}
 
 .choix{
 
 }
-/*Corps*/
+
+/***            Effet bouton           ***/
+
+.bouton:hover{
+    background:linear-gradient(rgb(10, 10, 196), rgb(15, 197, 197));   
+}
+
+.menu:hover .sousMenu{
+    display:flex;
+    flex-direction: column;
+}
+
+.choix:hover{
+    background:linear-gradient(rgb(10, 10, 196), rgb(15, 197, 197));
+}
+
+
+
+/***************** Corps *****************/
 
 .corps{
 
@@ -110,7 +129,7 @@ nav{
     background-color: whitesmoke;
 }
 
-/*Haut du corps*/
+/*********** Haut du corps ****************/
 .hautCorps{
     margin-top: 2em;
     margin-left: 1vh;
@@ -118,13 +137,21 @@ nav{
     flex-direction: row;
 }
 
-/*video*/
+/***              video                 ***/
 .video{
     max-height: 40vh;
     flex:0.7;
 }
 
-/*actu*/
+/***               actu                 ***/
+
+.actu{
+    background-color: white;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-height: 40vh;
+}
+
 .titreActu{
     background-color: blue;
     flex:0.1;
@@ -142,26 +169,21 @@ nav{
     flex:1;
 }
 
-.actu{
-    background-color: white;
-    flex-direction: column;
-    overflow-y: scroll;
-    max-height: 40vh;
-}
-
 .recette{
     margin-top: 5vh;
 }
 
 
-/*historique*/
+/***************** Historique *****************/
+
 .historique{
     flex-direction: column;
     margin-top: 2em;
 }
 
+/***             ArticleAside               ***/
 .articleAside{
-
+    align-items: center;
 }
 
 aside{
@@ -186,7 +208,7 @@ article{
     padding : 1em;
 }
 
-/*Footer*/
+/***************** Footer *****************/
 
 footer{
     display:flex;
@@ -200,16 +222,27 @@ footer{
     color: white;
 }
 
-/*Changement d'écran*/
+/************ Changement d'écran ***********/
 
 @media screen and (max-width:1200px){
-    .corps{
-        background-color: lightcoral;
+    .page{
+        width: 90vw;
     }
+    /* .corps{
+        background-color: lightcoral;
+    } */
 }
 
 @media screen and (max-width:800px){
-    .corps{
-        background-color: blue;
+    .page{
+        width: 97vw;
     }
+    /* .corps{
+        background-color: lightpink;
+    } */
+
+    .descriptionActu{
+        flex-direction: column;
+    }
+
 }
