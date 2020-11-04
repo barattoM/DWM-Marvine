@@ -23,6 +23,9 @@ img{
     width: 100%;
 }
 
+video{
+    width: 100%;
+}
 /*Page*/
 .page{
     flex-direction: column;
@@ -57,19 +60,48 @@ nav{
 }
 
 .bouton{
-    background-image: url("./fond.jpg");
+    /* background-image: url("./fond.jpg"); */
+    background: linear-gradient(blue, aqua);
     padding: 0.5em;
     justify-content: center;
     justify-items: center;
     color: whitesmoke;
+    
+}
+
+.blocMenu{
+    position: relative;
+    flex:2;
+}
+
+.menu{
+    display: block;
+    border-radius: 0.3em;
+    border: 0.5px black solid;
+    background: linear-gradient(blue, aqua);
     margin-left: 0.1em;
     margin-right: 0.1em;
 }
 
-.menu{
-    flex:2;
+.menu:hover .sousMenu{
+    display:flex;
+    flex-direction: column;
 }
 
+.sousMenu{
+    margin:3.3vh;
+    display:none;
+    position: absolute;
+    background: linear-gradient(blue,aqua);
+    border-radius: 0.3em;
+    border: 0.5px black solid;
+
+}   
+
+
+.choix{
+
+}
 /*Corps*/
 
 .corps{
@@ -88,7 +120,8 @@ nav{
 
 /*video*/
 .video{
-    max-height: 55vh;
+    max-height: 40vh;
+    flex:0.7;
 }
 
 /*actu*/
@@ -99,6 +132,7 @@ nav{
 }
 
 .ingredients{
+    flex-direction: column;
     flex:2;
 }
 
@@ -112,7 +146,7 @@ nav{
     background-color: white;
     flex-direction: column;
     overflow-y: scroll;
-    max-height: 55vh;
+    max-height: 40vh;
 }
 
 .recette{
@@ -126,14 +160,30 @@ nav{
     margin-top: 2em;
 }
 
+.articleAside{
+
+}
+
+aside{
+    border: 1px blue solid;
+    display: flex;
+    flex : 0.3;
+    border-radius: 5px;
+    align-items: center;
+}
+
 article{
     margin-top: 2em;
     text-align: center;
+    padding: 0 5em ;
 }
 
 .texte{
     justify-content: center;
     justify-items: center;
+    text-align: justify;
+    flex: 3;
+    padding : 1em;
 }
 
 /*Footer*/
@@ -148,4 +198,18 @@ footer{
 
 .blanc{
     color: white;
+}
+
+/*Changement d'écran*/
+
+@media screen and (max-width:1200px){
+    .corps{
+        background-color: lightcoral;
+    }
+}
+
+@media screen and (max-width:800px){
+    .corps{
+        background-color: blue;
+    }
 }
