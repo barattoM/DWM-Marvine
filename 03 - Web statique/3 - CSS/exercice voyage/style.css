@@ -1,0 +1,172 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div{
+    display: flex;
+    flex:1;
+}
+
+img{
+    width: 100%;
+}
+
+/* header */
+
+header{
+    display: flex;
+    background-image: url("./sky.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.logo{
+    padding: 1em;
+    flex: 0.2;
+}
+
+.titrePage{
+    flex:3;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenu */
+
+.contenu{
+    flex-direction: column;
+    background-image: url("./bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 5em 0;
+    align-items: center;
+}
+
+article{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5em;
+    width: 50vw;
+}
+
+.contenuArticle{
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+}
+
+.titreArticle{
+    flex: 0.2;
+}
+
+.texte{
+    padding: 0 1.5em;
+    text-align:justify;
+}
+
+.image{
+
+}
+
+/* ZoneDestination */
+
+.zoneDestination{
+    flex-direction: column;
+    width: 60vw;
+}
+
+.titreDestination{
+    justify-content: center;
+}
+
+.listeDestination{
+    flex-direction: row;
+    margin-bottom: 5vh;
+}
+
+/* Destination */
+
+.destination{
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    margin: 0 1vw;
+}
+
+.Paris{
+    background-image: url("./08.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.Londres{
+    background-image: url("./07.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.Rome{
+    background-image: url("./06.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.Bali{
+    background-image: url("./05.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.Crete{
+    background-image: url("./04.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.Barcelone{
+    background-image: url("./03.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.Istanbul{
+    background-image: url("./02.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.Marrakech{
+    background-image: url("./01.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+/* Footer */
+
+footer{
+    display: flex;
+    background-image: url("./pp.jpg");   
+}
+
+.titreFooter{
+    justify-content: center;
+}
+
+@media screen and (max-width:800px){
+    .zoneDestination{
+        width:85vw
+    }
+    article{
+        width: 80vw;
+    }
+    .imageArticle{
+        flex:0.4;
+    }
+    .logo{
+        flex:0.4;
+    }
+}
