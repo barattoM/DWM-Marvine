@@ -4,6 +4,10 @@ body {
     padding: 0;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 div{
     display: flex;
     flex:1;
@@ -150,12 +154,32 @@ article{
 footer{
     display: flex;
     background-image: url("./pp.jpg");   
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 1em 0;
 }
 
 .titreFooter{
     justify-content: center;
 }
 
+.top{
+    flex: 0.2;
+}
+
+
+a{
+    border: 2px black solid;
+    border-radius: 100%;
+    flex:0.3;
+    background-image: url("./16018.png");
+    background-color: ivory;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/*changement écran*/
 @media screen and (max-width:800px){
     .zoneDestination{
         width:85vw
