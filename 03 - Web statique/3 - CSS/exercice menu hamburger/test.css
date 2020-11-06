@@ -1,0 +1,61 @@
+nav{
+    display: flex;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+}
+.avecEnfant{
+    position: relative;
+    margin: 10px;
+    background-color: khaki;
+    flex:1;
+    text-align: center;
+}
+
+.avecEnfant:hover{
+    background-color: rgb(201, 194, 129); 
+}
+
+.avecEnfant:hover .sous-menu{
+    display: flex;
+    background-color: lemonchiffon;
+}
+
+.item:hover{
+    background-color: rgb(201, 197, 167);
+}
+
+.sous-menu{
+    display: none;
+    position: absolute;
+    flex-flow: column wrap;
+    background-color: lemonchiffon;
+    width: 100%;
+}
+.titreMenuHam{
+    display:none;
+    background-color: red; 
+    justify-content: center;
+}
+
+.menuHam{
+    flex:1;
+    justify-content: center;
+}
+
+@media screen and (max-width:800px){
+
+    .titreMenuHam{
+        display:flex;
+    }
+
+    .menu{
+        display:none;
+    }
+
+    .menuHam:hover .menu{
+        display:flex;
+    }
+
+}

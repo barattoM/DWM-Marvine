@@ -1,0 +1,90 @@
+div{
+    display:flex;
+    flex:1;
+}
+
+nav{
+    display: flex;
+    position: relative;
+    flex:2;
+}
+
+/***            Bouton menu            ***/
+
+.menu{
+    flex: 1;
+    display: flex;
+    border-radius: 0.3em;
+    border: 0.5px black solid;
+    background: linear-gradient(blue, aqua);
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+}
+
+.bouton{
+    background: linear-gradient(blue, aqua);
+    padding: 0.5em;
+    justify-content: center;
+    justify-items: center;
+    color: whitesmoke;
+    
+}
+
+.sousMenu{
+    margin: 3vh;
+    display:none;
+    position: absolute;
+    background: linear-gradient(blue,aqua);
+    border-radius: 0.3em;
+    border: 0.5px black solid;
+
+}
+
+.choix{
+
+}
+
+.menuHam{
+    display:flex;
+    text-align: center;
+    border: 0.5px black solid;
+    background: linear-gradient(blue, aqua);}
+
+.titreMenuHam{
+    display:none;
+}
+
+/***            Effet bouton           ***/
+
+.bouton:hover{
+    background:linear-gradient(rgb(10, 10, 196), rgb(15, 197, 197));   
+}
+
+.bouton:hover .sousMenu{
+    display:flex;
+    flex-direction: column;
+}
+
+.choix:hover{
+    background:linear-gradient(rgb(10, 10, 196), rgb(15, 197, 197));
+}
+
+@media screen and (max-width:800px){
+    .titreMenuHam{
+        display: flex;
+        position: relative;
+    }
+    
+    .menu{
+        display:none; 
+    }
+    
+    .menuHam:hover{
+        background:linear-gradient(rgb(10, 10, 196), rgb(15, 197, 197));
+    }
+
+    .menuHam:hover .menu{
+        display: flex;
+        position: absolute;
+    }
+}
