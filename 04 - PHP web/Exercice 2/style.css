@@ -1,0 +1,248 @@
+/***************** General ***************/
+
+div{
+    display: flex;
+    flex:1;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.espace{
+    flex:1;
+}
+
+img{
+    width: 100%;
+}
+
+video{
+    width: 100%;
+}
+/***************** Body *****************/
+body{
+    background-image: url("./fond.jpg");
+    height: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+/***************** Page *****************/
+.page{
+    flex-direction: column;
+    flex: none;
+    width: 80vw;
+}
+/*************** Header ****************/
+
+.logo{
+    flex :0.3;
+}
+
+.titre{
+    justify-content: center;
+    justify-items: center;
+    flex:3;
+}
+
+header{
+    display: flex;
+    background-image: url("./header.jpg");
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+/***************** Menus *****************/
+
+nav{
+    display: flex;
+    background-image: url("./fond1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    flex:2;
+    justify-content: center;
+}
+
+/***            Bouton menu            ***/
+
+.menu{
+    flex:none;
+    display: block;
+    border-radius: 0.3em;
+    border: 0.5px black solid;
+    background: linear-gradient(blue, aqua);
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+}
+
+.bouton{
+    background: linear-gradient(blue, aqua);
+    padding: 0.5em;
+    justify-content: center;
+    justify-items: center;
+    color: whitesmoke;
+    
+}
+
+.sousMenu{
+    margin: 2.5vh;
+    display:none;
+    position: absolute;
+    background: linear-gradient(blue,aqua);
+    border-radius: 0.3em;
+    border: 0.5px black solid;
+
+}
+
+.choix{
+
+}
+
+/***            Effet bouton           ***/
+
+.bouton:hover{
+    background:linear-gradient(rgb(10, 10, 196), rgb(15, 197, 197));   
+}
+
+.menu:hover .sousMenu{
+    display:flex;
+    flex-direction: column;
+}
+
+.choix:hover{
+    background:linear-gradient(rgb(10, 10, 196), rgb(15, 197, 197));
+}
+
+
+
+/***************** Corps *****************/
+
+.corps{
+
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+
+/*********** Haut du corps ****************/
+.hautCorps{
+    margin-top: 2em;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    flex-direction: row;
+}
+
+/***              video                 ***/
+.video{
+    max-height: 40vh;
+    flex:0.7;
+}
+
+/***               actu                 ***/
+
+.actu{
+    background-color: white;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-height: 40vh;
+}
+
+.titreActu{
+    background-color: blue;
+    flex:0.1;
+    justify-content: center;
+}
+
+.ingredients{
+    flex-direction: column;
+    flex:2;
+}
+
+.photoActu{
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    flex:1;
+}
+
+.recette{
+    margin-top: 5vh;
+}
+
+
+/***************** Historique *****************/
+
+.historique{
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+/***             ArticleAside               ***/
+.articleAside{
+    align-items: center;
+}
+
+aside{
+    border: 1px blue solid;
+    display: flex;
+    flex : 0.3;
+    border-radius: 5px;
+    align-items: center;
+}
+
+article{
+    margin-top: 2em;
+    text-align: center;
+    padding: 0 5em ;
+}
+
+.texte{
+    justify-content: center;
+    justify-items: center;
+    text-align: justify;
+    flex: 3;
+    padding : 1em;
+}
+
+/***************** Footer *****************/
+
+footer{
+    display:flex;
+    background-image: url("./fond1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blanc{
+    color: white;
+}
+
+/************ Changement d'écran ***********/
+
+@media screen and (max-width:1200px){
+    .page{
+        width: 90vw;
+    }
+    /* .corps{
+        background-color: lightcoral;
+    } */
+}
+
+@media screen and (max-width:800px){
+    .page{
+        width: 97vw;
+    }
+    /* .corps{
+        background-color: lightpink;
+    } */
+
+    .descriptionActu{
+        flex-direction: column;
+    }
+
+}
