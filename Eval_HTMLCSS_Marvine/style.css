@@ -1,0 +1,142 @@
+div{
+    display: flex;
+    flex: 1;
+}
+
+.bleu{
+    color:#000066;
+    font-weight: bolder;
+}
+
+.vert{
+    color : #006633;
+}
+
+img{
+    width:100%;
+}
+
+body{
+    background-color: #F7EFDF;
+}
+/*************** Header **************/
+header{
+    text-align: center;
+}
+
+/***************Intro**********************/
+
+.intro{
+    flex-direction: column;
+    margin: 0 5vw;
+}
+
+
+.texteIntro{
+    padding: 1vw;
+    text-align:justify;
+    display:block;
+    
+}
+
+
+.asideIntro{
+    border:1px black solid;
+    border-radius: 1em;
+    padding: 1em;
+    flex-direction: column;
+    text-align:justify;
+    flex:0.5;
+}
+
+ul{
+    list-style: circle;
+    margin-left: -1em;
+    text-align: justify;
+}
+
+/*********Corps*************/
+
+.corps{
+    margin: 2vh 5vw;
+}
+
+/* Partie Gauche */
+.partieGaucheCorps{
+    flex-direction: column;
+}
+
+article{
+    display: flex;
+}
+
+.texteArticle{
+    display: inline-block;
+    text-align:justify;
+}
+
+.blocImage{
+    flex-direction: column;
+    flex:0.3;
+    background-color: #F1E3C7 ;
+    border:1px #BB8C00 solid;
+}
+
+.titreImage{
+    text-align: center;
+}
+
+.texteImage{
+    text-align: center;
+}
+
+.blocImage2{
+    flex-direction: column;
+    flex:0.5;
+    background-color: #F1E3C7 ;
+    border:1px #BB8C00 solid;
+    display: block;
+}
+
+/* Partie Droite */
+
+.partieDroiteCorps{
+    margin-left: 1vh;
+    flex-direction: column;
+}
+
+
+/********* Media *******/
+
+@media screen and (max-width:800px){
+    /**** Intro ******/
+    .intro{
+        margin:0 1vw;
+    }
+    .blocIntro{
+        flex-direction: column;
+    }
+    .asideIntro{
+        margin-top:1vh;
+        padding-bottom: 0em;
+    }
+
+    /***** Corps ******/
+    .corps{
+        flex-direction: column;
+        margin:0 2vw;
+    }
+    article{
+        flex-direction: column-reverse;
+        margin-bottom: 1vh;
+    }
+    .inverse{
+        flex-direction: column;
+    }
+
+    .blocImage, .blocImage2{
+        margin: 1vh 0;
+    }
+
+
+}

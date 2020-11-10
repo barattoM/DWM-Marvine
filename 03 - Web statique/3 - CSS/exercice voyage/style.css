@@ -156,7 +156,7 @@ footer{
     background-image: url("./pp.jpg");   
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 1em 0;
+    padding: 0.5em 0;
 }
 
 .titreFooter{
