@@ -1,6 +1,13 @@
 :root{
-
+    --heav:linear-gradient(rgb(25, 9, 252),rgba(245, 26, 26, 0.877));
+    --realm: linear-gradient(rgb(212, 235, 248) ,rgb(18, 117, 230) );
+    --storm: linear-gradient(rgb(223, 223, 26) ,rgb(143, 145, 32) );
 }
+
+html{
+    scroll-behavior: smooth;
+}
+
 
 div, body, header, footer{
     display: flex;
@@ -25,6 +32,10 @@ img{
     height: 4vh;
 }
 
+.petit{
+    font-size: 10px;
+}
+
 /******** Header **********/
 .titre{
     justify-content: center;
@@ -40,13 +51,55 @@ img{
     flex: 0.3;
 }
 
+/******* Nav ********/
 
+nav{
+    display: flex;
+    position: sticky;
+    top: 1em;
+}
+
+.blocMenu{
+    flex: 4;
+}
+
+.menu{
+    border: black 1px solid;
+    border-radius: 1em;
+}
+
+.bouton{
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    text-decoration:none;
+}
+
+.blocMenu .espace{
+    flex:0.1;
+}
+
+#RealmReborn{
+    background: var(--realm);
+    border-radius: 1em;
+}
+
+#Heavensward{
+    background: var(--heav);
+    border-radius: 1em;
+}
+
+#Stormblood{
+    background: var(--storm);
+    border-radius: 1em;
+}
 
 /********* Page ***********/
 
 .page{
     display:block;
-    /* flex: none; */
     width: 80%;
     align-self: center;
 }
@@ -66,4 +119,14 @@ img{
 
 .blocImages .espace{
     flex:0.2;
+}
+
+/******* Footer *******/
+
+.top{
+    flex: 0.2;
+}
+
+footer .texte{
+    align-self:flex-end;
 }

@@ -1,5 +1,5 @@
 <body>
-<header>
+<header id="topPage">
         <div class="logo"><img src="../Ressources/logo.png" alt="logo"></div>
         <div class="titre"><h1>Final Fantasy XIV</h1></div>
         <div class="login colonne">
