@@ -1,0 +1,69 @@
+:root{
+
+}
+
+div, body, header, footer{
+    display: flex;
+    flex: 1;
+}
+
+body{
+    flex-direction: column;
+    /* background-image: url("../Ressources/ff14.png");
+    background-color: rgb(36, 34, 34); */
+}
+
+.colonne{
+    flex-direction: column;
+}
+
+img{
+    width: 100%;
+}
+
+.espaceHor{
+    height: 4vh;
+}
+
+/******** Header **********/
+.titre{
+    justify-content: center;
+    align-items: center;
+    flex: 4;
+}
+
+.logo{
+    flex: 0.3;
+}
+
+.login{
+    flex: 0.3;
+}
+
+
+
+/********* Page ***********/
+
+.page{
+    display:block;
+    /* flex: none; */
+    width: 80%;
+    align-self: center;
+}
+
+.texte{
+    text-align: justify;
+    display: block;
+    padding : 0 1em ;
+}
+
+.blocImages{
+    flex: none;
+    width : 80%;
+    align-self: center;
+    margin-top: 2.5vh;  
+}
+
+.blocImages .espace{
+    flex:0.2;
+}
