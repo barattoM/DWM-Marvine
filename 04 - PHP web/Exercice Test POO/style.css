@@ -1,0 +1,22 @@
+div{
+    display: flex;
+    flex: 1;
+}
+
+.personne{
+    border: 1px black solid;
+    border-radius: 3px;
+    padding: 1em;
+}
+
+.espaceHor{
+    height:2vh;
+}
+
+.nom, .age{
+    justify-content: center;
+}
+
+.colonne{
+    flex-direction: column;
+}
