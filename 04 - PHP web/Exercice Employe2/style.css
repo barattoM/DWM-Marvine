@@ -1,0 +1,74 @@
+:root{
+    --bleu: rgb(33, 200, 206);
+}
+
+div{
+    display: flex;
+    flex: 1;
+}
+
+header{
+    justify-content: center;
+    display: flex;
+}
+
+.gris{
+    background-color: rgb(190, 183, 183);
+}
+
+.bleu{
+    background-color: rgb(69, 166, 204);
+}
+
+.employe{
+}
+
+.espaceHor{
+    height:0.5vh;
+}
+
+#entete{
+    background-color: var(--bleu);
+}
+
+.colonne{
+    flex-direction: column;
+}
+
+.block{
+    display:block;
+}
+
+.agence, .service, .nom, .prenom {
+    border: 1px black solid;
+    border-radius: 3px;
+    padding: 1em;
+    justify-content: center;
+}
+
+a{
+    display: flex;
+    text-decoration: none;
+    flex: 1;
+}
+
+.cache{
+    display: none;
+}
+
+.titre{
+    justify-content: center;
+    align-items: center;
+    flex:0.2;
+    background-color: var(--bleu);
+    border: 1px black solid;
+    border-radius: 20px;
+}
+
+.detail{
+    background-color: rgb(130, 170, 172);
+    border: 1px black solid;
+    border-radius: 20px;
+    margin-left:-1vw;
+    z-index: -1;
+}
