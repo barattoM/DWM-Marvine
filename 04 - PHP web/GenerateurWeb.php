@@ -26,7 +26,19 @@ mkdir('./' . $nomprojet . '/PHP'.'/CONTROLLER', 0777, true);
 $HTML_folder = fopen('./'.$nomprojet.'/HTML/'. 'index.html', "w");
 $CSS_folder = fopen('./'.$nomprojet.'/CSS/'. 'style.css', "w");
 $JS_folder = fopen('./'.$nomprojet.'/JS/'. 'script.js', "w");
-$JS_folder = fopen('./'.$nomprojet.'/'. 'index.php', "w");
+$Index_folder = fopen('./'.$nomprojet.'/'. 'index.php', "w");
+
+// INSERTION DES FICHIERS DE PROTECTIONS DE NIVEAU 1
+$IMG_security = fopen($path . '/' . $nomprojet . '/IMG/' . 'index.php', "w");
+$DOCS_security = fopen($path . '/' . $nomprojet . '/DOCS/' . 'index.php', "w");
+$HTML_security = fopen($path . '/' . $nomprojet . '/HTML/' . 'index.php', "w");
+$CSS_security = fopen($path . '/' . $nomprojet . '/CSS/' . 'index.php', "w");
+$JS_security = fopen($path . '/' . $nomprojet . '/JS/' . 'index.php', "w");
+$PHP_security = fopen($path . '/' . $nomprojet . '/PHP/' . 'index.php', "w");
+$MODEL_security = fopen($path . '/' . $nomprojet . '/PHP' . '/MODEL/' . 'index.php', "w");
+$VIEW_security = fopen($path . '/' . $nomprojet . '/PHP' . '/VIEW/' . 'index.php', "w");
+$CONTROLLER_security = fopen($path . '/' . $nomprojet . '/PHP' . '/CONTROLLER/' . 'index.php', "w");
+$SQL_security = fopen('./' . $nomprojet . '/SQL/' . 'index.php', "w");
 
 $HTML_snippet = '<!doctype html>'."\n"
                 .'<html lang="fr">'."\n"

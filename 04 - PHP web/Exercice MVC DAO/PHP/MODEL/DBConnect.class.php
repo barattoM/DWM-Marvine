@@ -12,7 +12,7 @@ class DbConnect {
 	public static function init() {
 		try {
 			// On se connecte à MySQL
-			self::$db= new PDO ( 'mysql:host=localhost;dbname=baseProduits;charset=utf8', 'root', '');
+			self::$db= new PDO ( 'mysql:host=localhost;dbname=baseProduits;charset=utf8', 'produitsApp', 'produitsApp');
 		} catch ( Exception $e ) {
 			// En cas d'erreur, on affiche un message et on arrête tout
 			die ( 'Erreur : ' . $e->getMessage () );
