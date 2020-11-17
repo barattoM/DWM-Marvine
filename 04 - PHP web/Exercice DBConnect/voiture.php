@@ -67,12 +67,11 @@ while($reponse= $requete->fetch(PDO::FETCH_ASSOC)){
 /*****     REQUETE d'AJOUT COMPOSEE     *****/
 /********************************************/
 
-//on crée un objet
+
 $voiture= new Voiture(["marque"=>"Audi","modele"=>"S5","immatriculation"=>"aa545caac","couleur"=>"Jaune","kilometres"=>100]);
 
-//on prepare la requete
-// :nom est une variable SQL
+
 $requete = $db->prepare('INSERT INTO voiture(marque, modele, immatriculation, couleur, kilometres) VALUES ("'.$voiture->getMarque().'","'.$voiture->getModele().'","'.$voiture->getImmatriculation().'","'.$voiture->getCouleur().'",'.$voiture->getKilometres().')');
 
-// Ex�cution de la requ�te.
+
 $requete->execute();

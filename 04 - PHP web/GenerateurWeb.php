@@ -16,6 +16,7 @@ mkdir('./' . $nomprojet . '/HTML', 0777, true);
 mkdir('./' . $nomprojet . '/CSS', 0777, true);
 mkdir('./' . $nomprojet . '/JS', 0777, true);
 mkdir('./' . $nomprojet . '/PHP', 0777, true);
+mkdir('./' . $nomprojet . '/SQL', 0777, true);
 mkdir('./' . $nomprojet . '/PHP'.'/MODEL', 0777, true);
 mkdir('./' . $nomprojet . '/PHP'.'/VIEW', 0777, true);
 mkdir('./' . $nomprojet . '/PHP'.'/CONTROLLER', 0777, true);
