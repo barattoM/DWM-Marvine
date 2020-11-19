@@ -13,3 +13,66 @@ img, video {
 	width : 100%;
 }
 
+
+
+a{
+	display: flex;
+	flex: 1;
+	text-decoration:none;
+	color: black;
+}
+
+.colonne{
+	flex-direction: column;
+}
+
+header{
+	justify-content: center;
+}
+
+.page{
+	align-self: center;
+	justify-items: center;
+	align-content: center;
+	justify-content: center;
+	margin: 5vh 10vw;
+	background-color: rgb(148, 98, 22);
+}
+
+.id{
+	display:none;
+}
+
+.block{
+	display:block;
+}
+
+.espaceHor{
+	height: 3vh;
+}
+
+.titre{
+	justify-content: center;
+}
+
+#add{
+	width:30%;
+	margin-left: 27vw;
+}
+
+.nom{
+	justify-content: center;
+	padding: 1em;
+}
+
+.bouton{
+	background-color: rgb(55, 160, 29);
+	border:1px black solid;
+	border-radius: 20px;
+	justify-content: center;
+	padding: 1em;
+}
+
+.bouton:hover{
+	background-color: rgb(40, 109, 23);
+}
