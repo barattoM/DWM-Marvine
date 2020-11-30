@@ -8,7 +8,7 @@ switch ($_GET['mode']) {
                 if ($uti == false) {
                     $u = new Utilisateurs($_POST);
                     //encodage du mot de passe
-                    $u->setMotDePasse(md5($u->getMotDePasse()));
+                    $u->setMotDePasse(crypter($u->getMotDePasse()));
                     UtilisateursManager::add($u);
                     echo "Création du compte réussie";
                     header("refresh:3;url=index.php?codePage=default");
@@ -27,7 +27,7 @@ switch ($_GET['mode']) {
 
             $uti = UtilisateursManager::findByPseudo($_POST['pseudo']);
             if ($uti != false) {
-                if (md5($_POST['motDePasse']) == $uti->getMotDePasse()) {
+                if (crypter($_POST['motDePasse']) == $uti->getMotDePasse()) {
                     echo 'connection reussie';
                     $_SESSION['utilisateur'] = $uti;
                     header("refresh:3;url=index.php?codePage=default");

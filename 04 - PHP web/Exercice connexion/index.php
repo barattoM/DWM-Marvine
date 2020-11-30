@@ -25,6 +25,10 @@ function AfficherPage($page)
     include 'PHP/VIEW/Footer.php';
 }
 
+function crypter($motDePasse){
+    return md5($motDePasse)."25";
+}
+
 DbConnect::init();
 session_start();
 
@@ -53,7 +57,9 @@ $routes = [
 
     "formAjoutUtilisateur"=> ["PHP/VIEW/", "formAjoutUtilisateur", "Inscription"],
     "formConnexionUtilisateur"=> ["PHP/VIEW/", "formConnexionUtilisateur", "Connexion"],
-    "actionsUtilisateurs" => ["PHP/VIEW/", "ActionsUtilisateurs", "Inscription"]
+    "actionsUtilisateurs" => ["PHP/VIEW/", "ActionsUtilisateurs", "Inscription"],
+
+    "admin" => ["PHP/VIEW/", "admin", "Administration"],
 
 ];
 

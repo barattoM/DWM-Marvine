@@ -1,4 +1,13 @@
 <?php
+if(isset($_SESSION['utilisateur'])){
+    if($_SESSION['utilisateur']->getRole()=="Admin"){
+        echo "Vous êtes administrateur";
+    }
+    else{
+        echo "Vous êtes utilisateur";
+    }
+}
+
 echo '    
     <div class="bcgblack">
     <div></div>
@@ -9,3 +18,4 @@ echo '
 </div>
 </body>
 </html>';
+

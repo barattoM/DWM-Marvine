@@ -8,7 +8,7 @@
         <div><img class="logo" src="./IMG/logo.png" alt="logo"></div>
     </a> -->
     <?php
-    if(empty($_SESSION)){
+    if(empty($_SESSION['utilisateur'])){
         echo '<div class="colonne">
         <a href="index.php?codePage=formAjoutUtilisateur">
             <div class="boutons">
@@ -60,6 +60,16 @@
                 Listes des Studios
             </div>
         </a>
+        <?php
+        if(isset($_SESSION['utilisateur']) && $_SESSION['utilisateur']->getRole()=="Admin"){
+            echo '<a href="index.php?codePage=admin">
+                        <div class="boutons">
+                            Page admin
+                        </div>
+                    </a>';
+        }
+       
+        ?>
         </div>
         <div></div>
     </nav>
