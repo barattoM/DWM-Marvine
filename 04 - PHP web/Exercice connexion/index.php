@@ -26,7 +26,7 @@ function AfficherPage($page)
 }
 
 DbConnect::init();
-
+session_start();
 
 $routes = [
     "default" => ["PHP/VIEW/", "Accueil", "Accueil"], 
@@ -52,11 +52,8 @@ $routes = [
     "actionsStudios" => ["PHP/VIEW/", "ActionsStudio", "Formulaire des studios"],
 
     "formAjoutUtilisateur"=> ["PHP/VIEW/", "formAjoutUtilisateur", "Inscription"],
-    "actionsUtilisateurs" => ["PHP/VIEW/", "ActionsUtilisateurs", "Inscription"],
-
-    "formConnexionUtilisateur"=> ["PHP/VIEW/", "formConnexionUtilisateur", "Inscription"],
-
-    "erreurConnexion"=> ["PHP/VIEW/", "erreurConnexion", "Inscription"],
+    "formConnexionUtilisateur"=> ["PHP/VIEW/", "formConnexionUtilisateur", "Connexion"],
+    "actionsUtilisateurs" => ["PHP/VIEW/", "ActionsUtilisateurs", "Inscription"]
 
 ];
 

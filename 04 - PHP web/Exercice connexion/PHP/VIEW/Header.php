@@ -4,9 +4,33 @@
         <div><img class="logo" src="./IMG/logo.png" alt="logo"></div>
     </a>
         <div class="titre colonne centrer"><div class="centrer">Mediatech !</div><div class="soustitre centrer">Le site par excellence pour retrouver les meilleurs films du moment !</div></div>
-    <a href="index.php?codePage=default">
+    <!-- <a href="index.php?codePage=default">
         <div><img class="logo" src="./IMG/logo.png" alt="logo"></div>
-    </a>
+    </a> -->
+    <?php
+    if(empty($_SESSION)){
+        echo '<div class="colonne">
+        <a href="index.php?codePage=formAjoutUtilisateur">
+            <div class="boutons">
+                Inscription
+            </div>
+        </a>
+        <a href="index.php?codePage=formConnexionUtilisateur">
+            <div class="boutons">
+                Connexion
+            </div>
+        </a>
+        </div>';
+    }
+    else{
+        echo '<a href="index.php?codePage=actionsUtilisateurs&mode=deconnexionUtilisateur">
+                <div class="boutons">
+                    Deconnexion
+                </div>
+            </a>';
+        
+    }
+    ?>
     </header>
     <nav>
         <div></div>
@@ -34,16 +58,6 @@
         <a href="index.php?codePage=listeStudios">
             <div class="boutons">
                 Listes des Studios
-            </div>
-        </a>
-        <a href="index.php?codePage=formAjoutUtilisateur">
-            <div class="boutons">
-                Inscription
-            </div>
-        </a>
-        <a href="index.php?codePage=formConnexionUtilisateur">
-            <div class="boutons">
-                Connexion
             </div>
         </a>
         </div>

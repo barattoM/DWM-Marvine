@@ -1,30 +1,52 @@
 <?php
-//var_dump($_POST);
-$p = new Utilisateurs($_POST);
-//var_dump($p);
 switch ($_GET['mode']) {
-    case "ajoutUtilisateur":
-        {
-            UtilisateursManager::add($p);
+    case "ajoutUtilisateur": {
+            if ($_POST['motDePasse'] == $_POST['confirmation']) {
+                
+                // recherche si le pseudo existe
+                $uti = UtilisateursManager::findByPseudo($_POST['pseudo']);
+                if ($uti == false) {
+                    $u = new Utilisateurs($_POST);
+                    //encodage du mot de passe
+                    $u->setMotDePasse(md5($u->getMotDePasse()));
+                    UtilisateursManager::add($u);
+                    echo "Création du compte réussie";
+                    header("refresh:3;url=index.php?codePage=default");
+                } else {
+                    echo "le pseudo existe deja";
+                    header("refresh:3;url=index.php?codePage=formAjoutUtilisateur");
+                }
+            } else {
+                echo "la confirmation ne correspond pas au mot de passe";
+                header("refresh:3;url=index.php?codePage=formAjoutUtilisateur");
+            }
             break;
-        }
-    case "selectUtilisateur":
-        {
-            $utilisateur=UtilisateursManager::findByPseudo($p->getPseudo());
-            var_dump($utilisateur);
-            if($utilisateur==false){
-               header("location:index.php?codePage=erreurConnexion");
 
+        }
+    case "selectUtilisateur": {
+
+            $uti = UtilisateursManager::findByPseudo($_POST['pseudo']);
+            if ($uti != false) {
+                if (md5($_POST['motDePasse']) == $uti->getMotDePasse()) {
+                    echo 'connection reussie';
+                    $_SESSION['utilisateur'] = $uti;
+                    header("refresh:3;url=index.php?codePage=default");
+                } else {
+                    echo 'le mot de passe est incorrect';
+                    header("refresh:3;url=index.php?codePage=formConnexionUtilisateur");
+                }
+            } else {
+                echo "le pseudo n'existe pas";
+                header("refresh:3;url=index.php?codePage=formConnexionUtilisateur");
             }
-            else{
-                session_start();
-                $_SESSION["pseudo"]=$p->getPseudo();
-                $_SESSION["id"]=$p->getIdUtilisateur();
-                $_SESSION["role"]=$p->getRole();
-                header("location:index.php?codePage=erreurConnexion");
-            }
-            
+            break;
+
+        }
+    case "deconnexionUtilisateur": {
+
+            session_destroy();
+            echo "Vous êtes déconnecté";
+            header("refresh:3;url=index.php?codePage=default");
+
         }
 }
-
-header("location:index.php?codePage=default");
