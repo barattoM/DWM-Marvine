@@ -38,13 +38,13 @@ image.addEventListener("click", function (){
 //     }
 // }
 
-// //2eme version
-// lesArticles = document.getElementsByTagName("article");
-// for (let i = 0; i < lesArticles.length; i++) {
-//     //j'ecoute l'evenement click sur les articles et je lance la fonction vert
-//     lesArticles[i].addEventListener("mousedown", function () {
-//         for (let i = 0; i < lesArticles.length; i++) {
-//             lesArticles[i].style.color = "blue";
-//         }
-//     });
-// }
+//2eme version
+lesArticles = document.getElementsByTagName("article");
+for (let i = 0; i < lesArticles.length; i++) {
+    //j'ecoute l'evenement click sur les articles et je lance la fonction vert
+    lesArticles[i].addEventListener("mousedown", function () {
+        for (let i = 0; i < lesArticles.length; i++) {
+            lesArticles[i].style.color = "blue";
+        }
+    });
+}

@@ -9,27 +9,22 @@ var total = document.getElementById("total");
 // Première ligne
 prixUnitaire1.addEventListener("change", function (){
     prix1.value= parseInt(prixUnitaire1.value) * parseInt(quantite1.value);
+    total.value= parseInt(prix1.value) + parseInt(prix2.value);
 });
 
 quantite1.addEventListener("change", function (){
     prix1.value= parseInt(prixUnitaire1.value) * parseInt(quantite1.value);
+    total.value= parseInt(prix1.value) + parseInt(prix2.value);
 });
 
 //Deuxieme ligne
 prixUnitaire2.addEventListener("change", function (){
     prix2.value= parseInt(prixUnitaire2.value) * parseInt(quantite2.value);
+    total.value= parseInt(prix1.value) + parseInt(prix2.value);
 });
 
 quantite2.addEventListener("change", function (){
     prix2.value= parseInt(prixUnitaire2.value) * parseInt(quantite2.value);
-});
-
-//Total
-
-prix1.addEventListener("change", function (){
     total.value= parseInt(prix1.value) + parseInt(prix2.value);
 });
 
-prix2.addEventListener("change", function (){
-    total.value= parseInt(prix1.value) + parseInt(prix2.value);
-});

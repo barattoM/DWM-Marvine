@@ -1,0 +1,8 @@
+.carre{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    top: 400px;
+    left: 400px;
+}
