@@ -1,0 +1,3 @@
+1- Ajout d'un bouton pour confirmer la matière dans la gestion des notes, pour n'afficher que les notes liées à la matière. Pour récuperer le libelle de la matière souhaité sans JavaScript (rechargement de la page nécessaire)
+2- Ajout des attributs et getter/setter dans les classes contenant des clé étrangères. Elle récupère la l'objet lié à cette ID pour facilité la récupération des informations. 
+3- Pour la suppression d'un élément dans la base de donnée j'ai choisi une suppression en cascade. Donc un ajout de methode a été necessaires dans les managers correspondant.

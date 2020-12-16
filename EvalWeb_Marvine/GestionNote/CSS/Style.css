@@ -1,0 +1,116 @@
+:root{
+	--orange: #f2a16a;
+	--pale: #f8cbad;
+}
+
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+}
+
+div, header, footer, nav, article {
+	display : flex;
+	flex : 1;
+}
+
+header{
+	background-color: var(--pale);
+}
+
+body{
+	background: linear-gradient(var(--orange), var(--pale));
+	background-position: center;
+    background-repeat: no-repeat;
+	background-size: cover;
+}
+
+footer{
+	position: sticky;
+	bottom: 0em;
+}
+
+.espaceHor{
+	height: 1em;
+}
+
+.blanc{
+	background-color: white;
+}
+
+.block{
+	display:block;
+	flex:none;
+}
+
+img, video {
+	width : 100%;
+}
+
+.colonne {
+	flex-direction : column;
+}
+
+.titre {
+	flex: 5;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.centrer {
+    justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.titre {
+    flex: 7;
+    font-size: 2em;
+    padding: 0 0.5em;
+}
+
+.soustitre {
+    font-size: 1em;
+}
+
+.boutons {
+	background-color: var(--orange);
+	border: black solid 1px;
+    border-radius: 0.2em;
+    padding: 0em 0.5em;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    padding: 0.5em;
+    margin: 0.5em;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.gros{
+	width: 30%;
+}
+
+.espace{
+	flex: 1;
+}
+
+.petitFlex{
+	flex:0.1;
+}
+
+.icone{
+	flex:0.2;
+}
+
+
+/* Footer */
+.bande{
+ 	height: 1em;
+	background-color: var(--orange);	
+}
