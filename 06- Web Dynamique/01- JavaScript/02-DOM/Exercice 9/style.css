@@ -12,6 +12,20 @@
     height: 100px;
     background-color: black;
     position: absolute;
+    
+}
+
+#ob1{
     top: 150px;
     left: 200px;
+}
+
+#ob2{
+    top: 200px;
+    left: 550px;
+}
+
+#ob3{
+    top: 500px;
+    left: 150px;
 }
