@@ -1,31 +1,171 @@
 .carre{
-    width: 100px;
-    height: 100px;
+    width: 3vw;
+    height: 3vw;
     background-color: red;
     position: absolute;
-    top: 400px;
-    left: 400px;
+    top: 5.5vh;
+    left: 3vw;
+    z-index: 1;
 }
 
 .obstacle{
-    width: 100px;
-    height: 100px;
     background-color: black;
     position: absolute;
     
 }
 
-#ob1{
-    top: 150px;
-    left: 200px;
+.cheat{
+    background-color: black;
+    position: absolute;
 }
 
-#ob2{
-    top: 200px;
-    left: 550px;
+.invisible{
+    background-color:white;
+    position: absolute;
 }
 
-#ob3{
-    top: 500px;
-    left: 150px;
+.timer{
+    color:white;
+    position: absolute;
+    z-index: 2;
+}
+
+#fin{
+    background-color: blue;
+    position: absolute;
+    top: 88vh;
+    left: 94vw;
+    width: 3.7vw;
+    height: 3.6vw;
+}
+
+
+#bordHaut{
+    top: 0vh;
+    left: 0vw;
+    width: 100vw;
+    height: 4.7vh;
+}
+
+#bordGauche{
+    top: 0vh;
+    left: 0vw;
+    width: 2.3vw;
+    height: 100vh;
+}
+
+#bordBas{
+    top: 95.3vh;
+    left: 0vw;
+    width: 100vw;
+    height: 4.7vh;
+}
+
+#bordDroit{
+    top: 0vh;
+    left: 97.7vw;
+    width: 2.3vw;
+    height: 100vh;
+}
+
+#un{
+    top: 0vh;
+    left: 7vw;
+    width: 2vw;
+    height: 85vh;
+}
+
+#deux{
+    top: 80.4vh;
+    left: 13.5vw;
+    width: 77vw;
+    height: 4.5vh;
+    z-index: 1;
+}
+
+#trois{
+    top: 4.7vh;
+    left: 13.5vw;
+    width: 2vw;
+    height: 65vh;
+
+}
+
+#quatre{
+    top: 16vh;
+    left: 25vw;
+    width: 2vw;
+    height: 65vh;
+
+}
+
+#cinq{
+    top: 4.7vh;
+    left: 35vw;
+    width: 2vw;
+    height: 65vh;
+}
+
+#six{
+    top: 16vh;
+    left: 45vw;
+    width: 2vw;
+    height: 65vh;
+}
+
+#sept{
+    top: 4.7vh;
+    left: 57vw;
+    width: 2vw;
+    height: 65vh;
+}
+
+#huit{
+    top: 16vh;
+    left: 70vw;
+    width: 2vw;
+    height: 65vh;
+}
+
+#neuf{
+    top: 65vh;
+    left: 78vw;
+    width: 19.7vw;
+    height: 4.5vh;
+}
+
+#dix{
+    top: 47vh;
+    left: 70vw;
+    width: 19.7vw;
+    height: 4.5vh;
+}
+
+#onze{
+    top: 30vh;
+    left: 78vw;
+    width: 19.7vw;
+    height: 4.5vh;
+}
+
+#douze{
+    top: 16vh;
+    left: 70vw;
+    width: 19.7vw;
+    height: 4.5vh;
+}
+
+#troll{
+    top: 80.4vh;
+    left: 88.5vw;
+    width: 2vw;
+    height: 14.9vh;
+    background-color:white;
+}
+
+#troll2{
+    top: 80.4vh;
+    left: 89vw;
+    width: 8.7vw;
+    height: 4.5vh;
 }
