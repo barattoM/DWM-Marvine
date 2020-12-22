@@ -1,0 +1,38 @@
+div{
+    display: flex;
+    flex:1;
+}
+
+header{
+    display: flex;
+}
+
+.titre{
+    flex: 3;
+    justify-content: center;
+}
+
+img{
+    width: 100%;
+}
+
+.espaceHor{
+    display: block;
+    height: 2vh;
+}
+
+.verso{
+    display:none;
+}
+
+/* .case:hover .verso{
+    display:flex;
+}
+
+.case:hover .recto{
+    display:none;
+} */
+
+.jeu{
+    display:block;
+}

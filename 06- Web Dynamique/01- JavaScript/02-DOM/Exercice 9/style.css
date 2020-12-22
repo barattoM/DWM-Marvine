@@ -10,13 +10,25 @@
 
 .obstacle{
     background-color: black;
-    position: absolute;
-    
+    position: absolute;   
+    /* z-index: 1000; */
 }
 
 .cheat{
     background-color: black;
     position: absolute;
+}
+
+.obstacle2{
+    background-color:white;
+    position: absolute;
+    z-index: -1000;
+}
+
+.obstacleFini{
+    background-color:white;
+    position: absolute;
+    display: none;
 }
 
 .invisible{
@@ -28,6 +40,13 @@
     color:white;
     position: absolute;
     z-index: 2;
+}
+
+.compteur{
+    color:white;
+    position: absolute;
+    z-index: 2;
+    left: 85vw;
 }
 
 #fin{
@@ -168,4 +187,39 @@
     left: 89vw;
     width: 8.7vw;
     height: 4.5vh;
+}
+
+#treize{
+    top: 0vh;
+    left: 7vw;
+    width: 2vw;
+    height: 85vh;
+}
+
+#quatorze{
+    top: 15vh;
+    left: 17vw;
+    width: 2vw;
+    height: 80.5vh;
+}
+
+#quinze{
+    top: 0vh;
+    left: 27vw;
+    width: 2vw;
+    height: 80.5vh;
+}
+
+#seize{
+    top: 15vh;
+    left: 37vw;
+    width: 2vw;
+    height: 80.5vh;
+}
+
+#dix-sept{
+    top: 0vh;
+    left: 47vw;
+    width: 2vw;
+    height: 80.5vh;
 }

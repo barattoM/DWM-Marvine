@@ -6,6 +6,7 @@ var droite = document.getElementById("droite");
 var fin = document.getElementById("fin");
 var troll = document.getElementById("troll");
 var troll2 = document.getElementById("troll2");
+var compteur= document.getElementById("touche");
 
 var pas = 5;
 
@@ -96,13 +97,37 @@ var compteurCollision=0;
 
 function deplaceSouris(e)
 {
+    //Gestion du Timer
+    if(flagTime==false){
+        Timer();
+        flagTime=true;
+    }
+
     if (!collisionObstacles(parseInt(e.clientY) + ecartY, parseInt(e.clientX) + ecartX)) {
         carre.style.top = parseInt(e.clientY) + ecartY + "px";
         carre.style.left = parseInt(e.clientX) + ecartX + "px";
     }
     //condition de victoire
     if (collisionFin(fin,parseInt(e.clientY) + ecartY, parseInt(e.clientX) + ecartX)){
+        clearTimeout(t);
         alert("Vous avez gagné !");
+        /*************************** Changement de niveau ************************************/
+        //on enlève les anciens obstacles
+        for(let i=obstacles.length-1; i>=0 ; i--){ //on part de la fin d'obstacles car obstacles est redéfinie à chaque itération de la boucle (elle perd un élément à chaque fois)
+            if(obstacles[i].getAttribute("id")=="bordHaut" || obstacles[i].getAttribute("id")=="bordGauche" || obstacles[i].getAttribute("id")=="bordDroit" || obstacles[i].getAttribute("id")=="bordBas" ){
+                
+            }else{
+                obstacles[i].className = "obstacleFini";
+            }
+            
+        }
+        //on insère les nouveaux obstacles
+        for(let i=obstacles2.length-1; i>=0 ; i--){
+            obstacles2[i].className = "obstacle";
+        }
+        carre.style.top="5.5vh";
+        carre.style.left="3vw";
+        fin.style.top="4.7vh";
     }
 };
 
@@ -148,8 +173,16 @@ function collisionUnObstacle(obstacle, posX, posY) {
     var hob = parseInt(styleObstacle.height);
     if (posY < lob + wob && posY + w > lob && posX < tob + hob && posX + h > tob) {
         console.log("collision n°" + compteurCollision + "  " + obstacle.id);
-        flagMouv = false;
         compteurCollision++;
+        compteur.innerHTML="Nombre de collision : "+ compteurCollision;
+        flagMouv = false;
+
+        //gestion du malus si les secondes sont supérieur à 55s
+        if(seconde>55){
+            secondeTemp=seconde;
+        }
+    
+        seconde+=5;
         //gestion des collisions troll
         if(tob==parseInt(window.getComputedStyle(troll).top) && lob==parseInt(window.getComputedStyle(troll).left) && wob==parseInt(window.getComputedStyle(troll).width) && hob==parseInt(window.getComputedStyle(troll).height) ){
             troll.style.backgroundColor = "black";
@@ -209,6 +242,7 @@ function collisionFin(fin, posX, posY) {
 
 var obstacles = document.getElementsByClassName("obstacle");
 var invisibles = document.getElementsByClassName("invisible");
+var obstacles2 =document.getElementsByClassName("obstacle2");
 
 // console.log(obstacle.offsetLeft);// coté gauche obstacle
 // console.log(obstacle.offsetLeft+parseInt(window.getComputedStyle(obstacle).width)); //coté droit obstacle
@@ -269,6 +303,14 @@ document.addEventListener("keydown", (e) => {
                 coteHautCarre - pas < coteBasObstacle &&
                 coteBasCarre > coteHautObstacle) { //collision
                 collision = true;
+                //gestion du malus si les secondes sont supérieur à 55s
+                if(seconde>55){
+                    secondeTemp=seconde;
+                }
+                seconde+=5;
+
+                compteurCollision++;
+                compteur.innerHTML="Nombre de collision : "+ compteurCollision;
             }
             i++;
 
@@ -303,7 +345,16 @@ document.addEventListener("keydown", (e) => {
                 coteDroitCarre > coteGaucheObstacle &&
                 coteHautCarre < coteBasObstacle &&
                 coteBasCarre + pas > coteHautObstacle) {
+
+                //gestion du malus si les secondes sont supérieur à 55s
+                if(seconde>55){
+                    secondeTemp=seconde;
+                }
+                seconde+=5;
+
                 collision = true;
+                compteurCollision++;
+                compteur.innerHTML="Nombre de collision : "+ compteurCollision;
                 if (coteHautObstacle == troll2.offsetTop) { //si l'obstacle est l'objet troll2
                     troll.style.backgroundColor = "white";
                     troll2.style.backgroundColor = "black";
@@ -344,7 +395,16 @@ document.addEventListener("keydown", (e) => {
                 coteDroitCarre > coteGaucheObstacle &&
                 coteHautCarre < coteBasObstacle &&
                 coteBasCarre > coteHautObstacle) {
+
+                //gestion du malus si les secondes sont supérieur à 55s
+                if(seconde>55){
+                    secondeTemp=seconde;
+                }
+                seconde+=5;
+
                 collision = true;
+                compteurCollision++;
+                compteur.innerHTML="Nombre de collision : "+ compteurCollision;
             }
             i++;
         }
@@ -377,7 +437,16 @@ document.addEventListener("keydown", (e) => {
                 coteDroitCarre + pas > coteGaucheObstacle &&
                 coteHautCarre < coteBasObstacle &&
                 coteBasCarre > coteHautObstacle) {
+                
+                //gestion du malus si les secondes sont supérieur à 55s
+                if(seconde>55){
+                    secondeTemp=seconde;
+                }
+                seconde+=5;
+
                 collision = true;
+                compteurCollision++;
+                compteur.innerHTML="Nombre de collision : "+ compteurCollision;
                 if (coteGaucheObstacle == troll.offsetLeft) { //si l'obstacle est l'objet troll
                     troll.style.backgroundColor = "black";
                     troll2.style.backgroundColor = "white";
@@ -399,6 +468,24 @@ document.addEventListener("keydown", (e) => {
     }
     if(gagner==true){
         clearTimeout(t);
+        /*************************** Changement de niveau ************************************/
+        //on enlève les anciens obstacles
+        for(let i=obstacles.length-1; i>=0 ; i--){ //on part de la fin d'obstacles car obstacles est redéfinie à chaque itération de la boucle (elle perd un élément à chaque fois)
+            if(obstacles[i].getAttribute("id")=="bordHaut" || obstacles[i].getAttribute("id")=="bordGauche" || obstacles[i].getAttribute("id")=="bordDroit" || obstacles[i].getAttribute("id")=="bordBas" ){
+                
+            }else{
+                obstacles[i].className = "obstacleFini";
+            }
+            
+        }
+        //on insère les nouveaux obstacles
+        for(let i=obstacles2.length-1; i>=0 ; i--){
+            obstacles2[i].className = "obstacle";
+        }
+        carre.style.top="5.5vh";
+        carre.style.left="3vw";
+        fin.style.top="4.7vh";
+        gagner=false;
     }
 });
 
@@ -428,11 +515,21 @@ function funCode(e){
 var timer=document.getElementById("timer");
 var minute=0;
 var seconde=0;
+var secondeTemp=0;
 function Timer(){
     seconde++;
-    if(seconde==60){
-        seconde=0;
-        minute++;
+    if(seconde>=60){
+        //gestion malus si le timer est au dessus de 55secondes
+        if(secondeTemp!=0 && seconde>55){
+            secondeTemp=seconde-secondeTemp;     
+            seconde=secondeTemp;
+            minute++;
+            secondeTemp=0;
+        }else{
+            seconde=0;
+            minute++;
+            secondeTemp=0;
+        }    
     }
     //gestion affichage minute
     if(minute<10){
