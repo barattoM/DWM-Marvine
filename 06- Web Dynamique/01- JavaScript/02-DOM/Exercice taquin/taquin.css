@@ -1,0 +1,44 @@
+div{
+    display:flex;
+    flex:1;
+}
+.jeu{
+    flex-direction: column;
+}
+.bouton{
+    height: 40vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 30vw;
+}
+.vide{
+    width: 30vw;
+}
+#img1{
+    background-image: url("1.jpg");
+}
+#img2{
+    background-image: url("2.jpg");
+}
+#img3{
+    background-image: url("3.jpg");
+}
+#img4{
+    background-image: url("4.jpg");
+}
+#img5{
+    background-image: url("5.jpg");
+}
+#img6{
+    background-image: url("6.jpg");
+}
+#img7{
+    background-image: url("7.jpg");
+}
+#img8{
+    background-image: url("8.jpg");
+}
+#img9{
+    background-image: url("9.jpg");
+}
