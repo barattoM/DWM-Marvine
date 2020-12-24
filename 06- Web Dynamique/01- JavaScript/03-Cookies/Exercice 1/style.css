@@ -1,0 +1,8 @@
+:root{
+	--jour:whiteSmoke;
+	--nuit: #524c48;
+}
+
+body{
+    background-color: var(--jour);
+}

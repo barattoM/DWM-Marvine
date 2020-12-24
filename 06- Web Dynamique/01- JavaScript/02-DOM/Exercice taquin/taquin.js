@@ -1,8 +1,17 @@
 var boutons=document.getElementsByClassName("bouton");
+var win=["1.jpg",
+"2.jpg",
+"3.jpg",
+"4.jpg",
+"5.jpg",
+"6.jpg",
+"7.jpg",
+"8.jpg"];
 
 for(let i=0;i<boutons.length;i++){
     boutons[i].addEventListener("click",e=>{
         taquin(e)
+        testerGagner();
     });
 }
 
@@ -41,6 +50,7 @@ function taquin(e){
     }
     if((yClick-1==yVide || yClick+1==yVide) && (xClick==xVide) ){ //les cases en haut et en bas
         changer(xClick,yClick,e);
+        
     }
 }
 
@@ -53,4 +63,20 @@ function changer(xClick,yClick,e){
     yVide=yClick;
     vide=document.getElementsByClassName("vide")[0]; //On change vide
     boutons=document.getElementsByClassName("bouton"); //On change les boutons
+}
+
+function testerGagner(){
+    var cpt=1;
+    for (let i=0;i<boutons.length;i++){
+        var taille=window.getComputedStyle(boutons[i]).backgroundImage.length;
+        // console.log(window.getComputedStyle(boutons[i]).backgroundImage.substr(taille-7,5)); //on récupère le nom de l'image (1.jpg)
+        // console.log("wini : "+win[i]);
+        if (window.getComputedStyle(boutons[i]).backgroundImage.substr(taille-7,5)==win[i]){           
+            cpt++;
+        }
+        console.log(cpt);
+    }
+    if (cpt==9){
+        alert("Vous avez gagné");
+    }
 }
