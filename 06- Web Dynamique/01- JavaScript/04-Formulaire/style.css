@@ -1,0 +1,60 @@
+body{
+    background-color: rgba(138, 135, 135, 0.925);
+}
+
+div,label,input{
+    display: flex;
+    flex:1;
+}
+
+.espace{
+    flex:0.1;
+}
+
+input[required]+div::before{
+    content: "*";
+    color:red;
+}
+
+.espaceHor{
+    display: block;
+    height: 2vh;
+}
+
+.espaceG{
+    flex:4;
+}
+
+.image{
+    flex:0.01;
+    max-height: 2vh;
+}
+
+.imgErreur{
+    flex:0.01;
+    max-height: 2vh;
+}
+
+input[type=submit]{
+    background-color:rgba(138, 135, 135, 0.925);
+}
+
+fieldset{
+    width: 80%;
+    margin-left: 9vw;
+    background-color: #cccc;
+}
+
+.conseil{
+    position:absolute;
+    margin-top:-1.5em;
+    display: none;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border: black solid 1px;
+    padding: 0.1em;
+}
+
+/* input:valid{
+    box-shadow: 0 0 5px chartreuse;
+} */
