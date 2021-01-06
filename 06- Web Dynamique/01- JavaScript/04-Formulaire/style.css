@@ -7,8 +7,25 @@ div,label,input{
     flex:1;
 }
 
+input[type="radio"]{
+    flex:none;
+    
+}
+
+.colonne{
+    flex-direction: column;
+}
+
+label[for]{
+    flex:none;
+}
+
 .espace{
     flex:0.1;
+}
+
+.radio{
+    flex:2;
 }
 
 input[required]+div::before{
@@ -59,13 +76,27 @@ fieldset{
     margin-top:-2.5em;
 }
 
-input[type=password]{
-    background-image : url("oeil.png");
-    background-size: 8%;
-    background-repeat: no-repeat;
-    background-position : right;    
+#oeil{
+    margin-left: -2vw;
+    width:100%;
 }
 
-/* input:valid{
-    box-shadow: 0 0 5px chartreuse;
-} */
+.verif{
+    flex:0.1;
+}
+
+.checkMdp{
+    position:absolute;
+    margin-top:3vh;
+    margin-left:-15vw;
+    display: none;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border: black solid 1px;
+    padding: 0.1em;
+}
+
+.check{
+    flex:0.01;
+    max-height: 2vh;
+}
