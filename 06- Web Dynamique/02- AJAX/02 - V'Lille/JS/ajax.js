@@ -12,7 +12,7 @@ req.onreadystatechange = function (event) {
             reponse = JSON.parse(this.responseText);
             console.log(this.responseText);
             console.log(reponse);
-            enregs = reponse.records;
+            enregs = trie(reponse.records);
             for (let i = 0; i < enregs.length; i++) {
                 // on crée la ligne et les div internes
                 ligne = document.createElement("div");
@@ -71,6 +71,27 @@ function afficheDetail(e) {
     dispo.innerHTML = "  nb velos dispo " + enregs[parkingClique.id].fields.nbvelosdispo;
     nbMax.innerHTML= "  nb places dispo " + enregs[parkingClique.id].fields.nbplacesdispo;
     contenu.insertBefore(detail, parkingClique.nextSibling);
+}
+
+function trie(tab){
+    // for(let i=0;i<tab.length;i++){
+    //     console.log(tab[i].fields.commune);
+    // }
+    do{
+        //on part du principe que le tableau est bien trié, et dès que l'on fait une permutation il ne l'est plus. Si on ne fait plus de permutation alors il est trié et on sort de la boucle
+        flag=true;
+        //on compare tout les éléments du tableau avec son voisin (sauf le dernier)
+        for(let i=0;i<tab.length-1;i++){
+            //si la valeur suivante est plus petite alors on permute les 2 valeurs dans le tableau
+            if(tab[i+1].fields.commune<tab[i].fields.commune){
+                temp=tab[i];
+                tab[i]=tab[i+1];
+                tab[i+1]=temp;
+                flag=false;    
+            }
+        }
+    }while(!flag);
+    return tab;
 }
 
 //on envoi la requête
