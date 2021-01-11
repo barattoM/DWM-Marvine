@@ -22,12 +22,40 @@
 		<div class="etat">Température max</div>
 	</div>
 	<div class="ligne" id="info">
-		<div class="commune">Temps</div>
-		<div class="nom">Température min</div>
-		<div class="etat">Température max</div>
+	<div class="colonne">
+			<div class="blockImage">
+				<div class="espace"></div>
+				<div class="image"><img src="" alt=""></div>
+				<div class="espace"></div>
+			</div>
+			<div class="commune">Temps</div>
+		</div>
+		<div class="colonne">
+			<div class="blockImage">
+				<div class="espace"></div>
+				<div class="image"><img src="Images/thermometer-512.png" alt=""></div>
+				<div class="espace"></div>
+			</div>
+			<div class="nom">Température min</div>
+		</div>
+		<div class="colonne">
+			<div class="blockImage">
+				<div class="espace"></div>
+				<div class="image"><img src="Images/thermometer-red-512.png" alt=""></div>
+				<div class="espace"></div>
+			</div>
+			<div class="etat">Température max</div>
+		</div>
 	</div>
 
 	<div class="espaceHorizon"></div>
-</div>
+	<div class="espaceHorizon"></div>
+	<div class="espaceHorizon"></div>
+	<div>NASA</div>
+	<input type="date" id="date" />
+	<img id="nasa" src="" alt="">
+	<div id="erreur"></div>
+	
 
-<!-- api.openweathermap.org/data/2.5/group?id=3020685,3029161,2988507,2995468,2998324&appid=4f00f8b80c9b221ffd12e64353e31667&units=metric&lang=fr -->
+	<div class="espaceHorizon"></div>
+</div>

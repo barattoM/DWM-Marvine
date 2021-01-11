@@ -7,6 +7,11 @@ img {
 	width: 100%;
 }
 
+.colonne{
+	flex-direction: column;
+	flex:1;
+}
+
 #page {
 	display: flex;
 	flex-direction: column;
@@ -64,8 +69,10 @@ img {
 #divSousTitre{
 	text-align: center;
 }
+
 .nom , .commune ,.etat  {
 	flex: 1;
+	text-align: center;
 }
 .nbVeloDispo, .adresse, .nbPlaces{
 	flex: 1;
@@ -80,3 +87,28 @@ img {
 	background-color: darkgrey;
 }
 
+.espace{
+	display: flex;
+	flex:1;
+}
+
+.image{
+	display: flex;
+	flex:0.5;
+}
+
+.blockImage{
+	display: flex;
+	justify-content: center;
+}
+
+.ville{
+	text-align: center;
+	font-weight: bolder;
+	font-size: 1.5em;
+}
+
+.choix{
+	display: flex;
+	justify-content: center;
+}
