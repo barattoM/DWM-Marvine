@@ -1,0 +1,36 @@
+body{
+    background-color: wheat;
+}
+
+div,label,input{
+    display: flex;
+    flex:1;
+}
+
+.colonne{
+    flex-direction: column;
+}
+
+.espace{
+    flex:0.1;
+}
+
+.espaceHor{
+    display: block;
+    height: 2vh;
+}
+
+fieldset{
+    width: 80%;
+    margin-left: 9vw;
+}
+
+.centrer{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.erreur{
+    color:red;
+}
