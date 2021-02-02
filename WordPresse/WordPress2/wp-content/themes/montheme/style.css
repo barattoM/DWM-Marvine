@@ -1,0 +1,18 @@
+/* 
+Theme Name: montheme 
+Author: Moi 
+Description: Theme simple pour Wordpress 
+*/
+
+.header { 
+    background: #377bb5;
+}
+
+#navigation-principale li {
+    position: relative; display: inline-block; padding: 10px;
+    font-weight: 500;
+}
+
+#navigation-principale li a {
+    color: #fff;
+}

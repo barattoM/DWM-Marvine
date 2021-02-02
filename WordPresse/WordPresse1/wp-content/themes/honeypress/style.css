@@ -143,7 +143,7 @@ pre {
 	padding: 1.6em;
 }
 
-hr { background-color: #eceff3; border: 0; height: 1px; margin-bottom: 1.6rem; }
+hr { background-color: #eceff3; border: 0; height: 2px; margin-bottom: 1.6rem;}
 
 code, kbd, tt, var { font-size: 1.000rem; }
 

@@ -1,0 +1,14 @@
+/* Theme Name: HonneyPress enfant
+Description: Theme enfant HonneyPress
+Author: Moi 
+Author URI: https://www.wpserveur.net 
+Template: HoneyPress 
+Version: 0.1.0 
+*/
+
+.page-title-section{
+    background: #17212c url("http://tout/WordPresse/WordPresse1/wp-content/uploads/2021/02/ogp_square-enix-1024x538-1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
