@@ -1,5 +1,5 @@
 <div class="blog-post">
-    <?php the_post_thumbnail('medium'); ?>
+    
     <h2 class="blog-post-title">
         <?php the_title(); ?>
     </h2>
@@ -11,13 +11,10 @@
     <?php 
         if(is_single()){
             the_content();
-            if(get_previous_post()!=null){
-                previous_post_link();
-            }  
-            if(get_next_post()!=null){
-                next_post_link();
-            }
+            previous_post_link("&laquo; %link","%title",true,"","category");
+            next_post_link("&laquo; %link","%title",true,"","category");
         }else{
+            the_post_thumbnail('medium');
             the_excerpt();
             ?>
             <a href="<?php the_permalink()?>"><button>Lire la suite</button></a>
