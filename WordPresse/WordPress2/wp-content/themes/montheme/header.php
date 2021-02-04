@@ -9,6 +9,7 @@
     <meta name="author" content="">
     <title>Exemple de thème WordPress</title> <!-- CSS de Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href= "<?php echo get_stylesheet_directory_uri() . "/style.css" ?>" rel="stylesheet">
     <!-- Ajout d'une nouvelle feuille de style qui sera spécifique à notre thème -->
     <link href="<?php bloginfo('template_directory');?>/blog.css" rel="stylesheet">
     <!-- HTML5 shim et Respond.js pour supporter les éléments HTML5 pour Internet Explorer 8 -->
@@ -19,10 +20,12 @@
 <body>
     <div class="header">
         <div class="container">
+            <h1 class="page-title"><?php echo tpz_display_page_title( false ) ?></h1>
             <nav id="navigation-principale" role="navigation">
                 <?php wp_nav_menu( array( 'theme_location' => 'menu-principal' ) ); ?>
             </nav>
         </div>
+        
     </div>
     <div class="container">
         <div class="blog-header">

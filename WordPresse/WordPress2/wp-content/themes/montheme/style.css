@@ -16,3 +16,7 @@ Description: Theme simple pour Wordpress
 #navigation-principale li a {
     color: #fff;
 }
+
+.menu{
+    display: flex;
+}

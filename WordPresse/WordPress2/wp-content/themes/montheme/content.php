@@ -11,8 +11,8 @@
     <?php 
         if(is_single()){
             the_content();
-            previous_post_link("&laquo; %link","%title",true,"","category");
-            next_post_link("&laquo; %link","%title",true,"","category");
+            previous_post_link("<-- %link","%title",true,"","category");
+            next_post_link(" %link -->","%title",true,"","category");
         }else{
             the_post_thumbnail('medium');
             the_excerpt();
