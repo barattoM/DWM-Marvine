@@ -1,0 +1,31 @@
+.colonne{
+    display: flex;
+    flex-direction: column;
+}
+
+.invisible{
+    display: none;
+}
+
+#recto{
+    display: flex;
+}
+
+#verso{
+    display: flex;
+    flex:1;
+}
+
+#carte{
+    display: flex;
+    flex:1;
+}
+
+.image{
+    display: flex;
+    flex:0.5;
+}
+
+img{
+    width: 100%;
+}
