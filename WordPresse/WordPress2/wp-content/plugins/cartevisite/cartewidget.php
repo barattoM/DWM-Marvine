@@ -28,7 +28,7 @@ class cartewidget extends WP_Widget
         ?>
         <h1>Carte de visite</h1>
         <div id="carte" style="background-color:<?php echo $background ;?>">
-            <div class="image"><img src="http://tout/WordPresse/WordPress2/wp-content/uploads/2021/02/ff2.jpg" alt=""></div>
+            <div class="image"><img src="<?php echo plugins_url("cartevisite/IMG/ff2.jpg") ?>" alt=""></div>
             <div class="colonne">
                 <div class="colonne" id="recto">
                     <?php 
